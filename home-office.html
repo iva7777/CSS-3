@@ -1,0 +1,516 @@
+<html>
+    <head>
+        <style>
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height:100vh;
+            }
+
+                .homeOffice {
+                position: relative;
+                }
+
+                .content {
+                position: relative;
+                width:500px;
+                height:400px;
+                overflow: hidden;
+                background-color: #7bc7be;
+                }
+
+                .content:before {
+                content:"";
+                position: absolute;
+                background-color: #264653;
+                width: 130px;
+                height:15px;
+                left:40px;
+                top:110px;
+                }
+
+                .content:after {
+                content:"";
+                position: absolute;
+                background-color: #fff;
+                width:175px;
+                height:5px;
+                left:295px;
+                box-shadow: 0 188px #fff;
+                }
+
+                .books {
+                position: absolute;
+                top:50px;
+                }
+
+                .webDesign {
+                position: relative;
+                z-index:1;
+                color: white;
+                font-size:10px;
+                top:47px;
+                left:70px;
+                }
+
+                .webDesign:before {
+                position: absolute;
+                content:"";
+                background-color: #660708;
+                width:90px;
+                height: 15px;
+                border-radius: 3px;
+                z-index:-1;
+                top:-2px;
+                left:-20px;
+                }
+
+                .webDesign:after {
+                content:"";
+                position: absolute;
+                width: 3px;
+                height: 15px;
+                background-color: #ba181b;
+                top:-2px;
+                left:-9px;
+                box-shadow: 64px 0 #ba181b;
+                }
+
+                .javaScript {
+                position: relative;
+                z-index:1;
+                color: #fcca46;
+                text-align: center;
+                font-size:10px;
+                top:17.5px;
+                left:90px;
+                }
+
+                .javaScript:before {
+                content:"";
+                position: absolute;
+                width:85px;
+                height:20px;
+                top:-4.4px;
+                left:-17px;
+                z-index:-1;
+                background-color: #619b8a;
+                border-radius: 3px;
+                }
+
+                .javaScript:after {
+                content:"";
+                position: absolute;
+                width:2px;
+                height: 20px;
+                background-color: #fcca46;
+                top:-5px;
+                left:60px;
+                box-shadow: -71px 0 #fcca46;
+                }
+
+                .window {
+                position: absolute;
+                border: 7px solid #fff;
+                background-color:#ade8f4;
+                width:150px;
+                height:170px;
+                left:300px;
+                top:20px;
+                overflow:hidden;
+                }
+
+                .window:before {
+                content:"";
+                position: absolute;
+                background-color: rgba(0, 119, 182,0.5);
+                width:50px;
+                height:150px;
+                left:-10px;
+                top:70px;
+                box-shadow: 20px 10px rgba(0, 119, 182,0.5), 70px -20px rgba(0, 119, 182,0.5), 120px 30px rgba(0, 119, 182,0.5), 20px -30px rgba(0, 119, 182,0.2), 120px -10px rgba(0, 119, 182,0.2);
+                }
+
+                .window:after {
+                content:"";
+                position: absolute;
+                width:0;
+                height:0;
+                border-top: 85px solid rgba(255,255,255,0.2);
+                border-left: 120px solid transparent;
+                left:30px;
+                }
+
+                .knob {
+                position: absolute;
+                width: 150px;
+                height:5px;
+                background-color: #fff;
+                top:85px;
+                }
+
+                .knob:before {
+                content:"";
+                position: absolute;
+                width: 30px;
+                height:5px;
+                background-color: #fff;
+                top:-5px;
+                left:55px;
+                }
+
+                .knob:after {
+                content:"";
+                position: absolute;
+                width:0;
+                height:0;
+                top:10px;
+                border-bottom: 75px solid rgba(255,255,255,0.2);
+                border-right: 120px solid transparent;
+                }
+
+                .desk {
+                position: relative;
+                width: 350px;
+                height: 15px;
+                background-color: #264653;
+                left:75px;
+                top:230px;
+                }
+
+                .desk:before, .desk:after {
+                content:"";
+                position: absolute;
+                border: 10px solid #264653;
+                background-color: #2a9d8f;
+                width: 100px;
+                height:35px;
+                }
+
+                .desk:before {
+                top:5px;
+                }
+
+                .desk:after {
+                top:50px;
+                }
+
+                .legs {
+                position: absolute;
+                border: 10px solid #264653;
+                background-color: #e9c46a;
+                width: 100px;
+                height:35px;
+                top:95px;
+                z-index:1;
+                }
+
+                .legs:after {
+                content:"";
+                position: absolute;
+                background-color: #073b4c;
+                width: 10px;
+                height:150px;
+                left:330px;
+                top:-105px;
+                }
+
+                .legs:before {
+                content:"";
+                position: absolute;
+                background-color: #023047;
+                width:40px;
+                height: 5px;
+                border-radius:10px;
+                top:16px;
+                left:30px;
+                box-shadow: 0 -45px #023047, 0 -90px #023047;
+                }
+
+                .bin {
+                position: absolute;
+                width:25px;
+                height:40px;
+                background-color: #fff;
+                box-shadow: 10px -10px #e76f51, 25px 0px #2a9d8f;
+                left:270px;
+                top:70px;
+                }
+
+                .bin:before {
+                content:"";
+                position: absolute;
+                width:40px;
+                height:0;
+                border-top: 70px solid #f4a261;
+                border-right: 15px solid transparent;
+                border-left: 15px solid transparent;
+                left:-10px;
+                top:10px;
+                }
+
+                .bin:after {
+                content:"";
+                position: absolute;
+                width:20px;
+                height:0;
+                border-top: 70px solid rgba(0,0,0,0.1);
+                border-right: 15px solid transparent;
+                left:25px;
+                top:10px;
+                }
+
+                .coffee {
+                position: absolute;
+                width:35px;
+                height: 40px;
+                background-color: #e76f51;
+                border-radius:5px;
+                box-shadow: inset -17px 0 rgba(0,0,0,0.1);
+                top:-40px;
+                left:50px;
+                }
+
+                .coffee:before {
+                content:"";
+                position: absolute;
+                border: 5px solid #e76f51;
+                left:-15px;
+                width:20px;
+                height:20px;
+                border-radius:50%;
+                top:5px;
+                }
+
+                .coffee:after {
+                content:"";
+                position: absolute;
+                background-color: rgba(255,255,255,0.7);
+                width: 25px;
+                height: 3.5px;
+                border-radius:10px;
+                top:-7px;
+                left:5px;
+                opacity:0;
+                box-shadow: -15px -3.5px #7bc7be, 15px -3.5px #7bc7be, -5px -3.5px rgba(255,255,255,0.7), 5px -7px rgba(255,255,255,0.7), -5px -10.5px #7bc7be, 25px -10.5px #7bc7be, 5px -10.5px rgba(255,255,255,0.7), 5px -14px rgba(255,255,255,0.7);
+                animation: up 2s linear infinite;
+                }
+
+                @keyframes up { 
+                    20% {opacity: 0.7;}
+                    35% {top: 0px; opacity: 0.7;}
+                    70% {top: -5px;  opacity: 0;} 
+                }
+
+                .lamp {
+                position: absolute;
+                z-index:3;
+                width: 50px;
+                height:5px;
+                background-color: #d3d3d3;
+                top:-5px;
+                left:270px;
+                }
+
+                .lamp:before {
+                content:"";
+                position: absolute;
+                border-right: 2px solid #333;
+                border-left: 2px solid #333;
+                width: 5px;
+                height:70px;
+                top:-80px;
+                left:30px;
+                transform: rotate(20deg);
+                }
+
+                .lamp:after {
+                content:"";
+                position: absolute;
+                border-radius: 50px 50px 0 0;
+                background-color: #d3d3d3;
+                width:40px;
+                height: 25px;
+                top:-20px;
+                left:5px; 
+                }
+
+                .lampShade {
+                z-index:5;
+                position: absolute;
+                border-right: 2px solid #333;
+                border-left: 2px solid #333;
+                width: 5px;
+                height:70px;
+                top:-139px;
+                left:15px;
+                transform: rotate(-50deg);
+                }
+
+                .lampShade:before {
+                content:"";
+                position: absolute;
+                border:5px solid #8a817c;
+                background-color: #f4f3ee;
+                width:7px;
+                height:7px;
+                border-radius:50%;
+                top:62px;
+                left:-6px;
+                box-shadow: 10px -73px #333;
+                }
+
+                .lampShade:after {
+                content:"";
+                position: absolute;
+                width:30px;
+                border-bottom: 55px solid #333;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                transform: rotate(90deg);
+                top:-30px;
+                left:-35px;
+                }
+
+                .laptop {
+                position: absolute;
+                width: 120px;
+                height:80px;
+                background-color: #7d8597;
+                border-radius:10px 10px 0 0;
+                top:150px;
+                left:195px;
+                z-index:2;
+                }
+
+                .lampBulb {
+                position: absolute;
+                background-color: #fcca46;
+                box-shadow: inset -3px -3px rgba(0,0,0,0.1);
+                width:20px;
+                height:20px;
+                border-radius:50%;
+                top:-106px;
+                left:-46px;
+                }
+
+                .lampBulb:before {
+                content:"";
+                position: absolute;
+                background-color: #463f3a;
+                width:5px;
+                height:10px;
+                border-radius:10px;
+                top:90px;
+                left:52px;
+                transform: rotate(-35deg);
+                }
+
+                .laptop:before {
+                content:"";
+                position: absolute; 
+                background-color: #5c677d;
+                width:140px;
+                height:10px;
+                border-radius:0 0 10px 10px;
+                top:70px;
+                left:-10.5px;
+                }
+
+                .laptop:after {
+                content:"";
+                position: absolute;
+                background-color: #33415c;
+                border-radius:0 0 10px 10px;
+                width:30px;
+                height:3px;
+                top:70px;
+                left:45px;
+                }
+
+                .screen {
+                position: absolute;
+                background-color: #333;
+                width: 100px;
+                height:55px;
+                left:10px;
+                top:10px;
+                overflow: hidden;
+                }
+
+                .time {
+                position: absolute;
+                color: #fff;
+                font-size: 20px;
+                font-family: Tahoma, Geneva, sans-serif;
+                letter-spacing: 5px;
+                top:15px;
+                left: 15px;
+                }
+
+                .time:before {
+                content:"";
+                position: absolute;
+                width:0;
+                height:0;
+                border-top: 130px solid rgba(0,0,0,0.1);
+                border-left: 140px solid transparent;
+                top:-20px;
+                }
+        </style>
+
+        <script>
+            function showTime(){
+                var date = new Date();
+                var h = date.getHours(); 
+                var m = date.getMinutes(); 
+                
+                if(h == 0){
+                    h = 12;
+                }
+                
+                if(h > 12){
+                    h = h - 12;        
+                }
+                
+                h = (h < 10) ? "0" + h : h;
+                m = (m < 10) ? "0" + m : m;
+                    
+                var time = h + ":" + m;
+                document.getElementById("DigitalClock").innerText = time;
+                document.getElementById("DigitalClock").textContent = time;
+                
+                setTimeout(showTime, 1000);
+                showTime();
+            }
+        </script>
+    </head>
+    <body onload="showTime()">
+        <div class="homeOffice">
+            <div class="content">
+              <div class="books">
+                <div class="webDesign">Web Design</div>
+                <div class="javascript">Java Script</div>
+              </div>
+              <div class="window">
+                <div class="knob"></div>
+              </div>
+              <div class="desk">
+                <div class="legs"></div>
+                <div class="bin"></div>
+                <div class="coffee"></div>
+                <div class="lamp">
+                  <div class="lampShade"></div>
+                  <div class="lampBulb"></div>
+                </div>
+              </div>
+              <div class="laptop">
+                <div class="screen">
+                  <div id="DigitalClock" class="time"></div>
+                </div>
+              </div>
+            </div>
+          </div>        
+    </body>
+</html>
