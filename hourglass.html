@@ -1,0 +1,112 @@
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0a9396;
+        }
+
+        .hourglass, .sand-container {
+            position: relative;
+        }
+
+        .sand-container {
+            height: 255px;
+            width: 150px;
+        }
+
+        .sand-container {
+            transition: .5s;
+        }
+
+        .glass-top, .glass-bottom {
+            position: absolute;
+            background-color: #2ea2ab;
+            width: 100px;
+            height: 100px;
+            left:20px;
+            border: 7px solid #001219;
+        }
+
+        .glass-top {
+            border-radius: 30% 70% 50% 50% / 0% 0% 100% 100%;
+            top:20px;
+        }
+
+        .glass-bottom {
+            border-radius: 50% 50% 50% 50% / 100% 100% 0% 0%;
+            top:125px;
+        }
+
+        .glass-top:before, .glass-bottom:before {
+            content:"";
+            position: absolute;
+            width: 140px;
+            border: 7px solid #001219;
+            height: 15px;
+            border-radius:20px;
+            left:-27px;
+            background-color: #ee9b00;
+        }
+
+        .glass-top:before {
+            top:-30px;
+            box-shadow: inset 5px 5px #e9d8a6;
+        }
+
+        .glass-bottom:before {
+            top:100px;
+            box-shadow: inset -5px -5px #e9d8a6;
+        }
+
+        .glass-bottom:after {
+            content:"";
+            position: absolute;
+            width:20px;
+            height:40px;
+            background-color: #2ea2ab;
+            left:40px;
+            top:-20px;
+        }
+
+        .sand {
+            position: absolute;
+        }
+
+        .sand-top, .sand-bottom, .leak {
+            position: absolute;
+            background-color: #ca6702;
+        }
+
+        .sand-bottom {
+            border-radius: 50% 50% 50% 50% / 100% 100% 0% 0%;
+            width:90px;
+            height: 80px;
+            top:149px;
+            left:32px;
+        }
+
+        .leak {
+            width:7px;
+            height:0;
+            top:70px;
+            left:70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hourglass">
+        <div class="sand-container">
+        <div class="glass-top"></div>
+        <div class="glass-bottom"></div>
+          <div class="sand">
+            <div class="sand-top"></div>
+            <div class="sand-bottom"></div>
+          </div>
+        </div>
+        <div class="leak"></div>
+      </div>
+</body>
