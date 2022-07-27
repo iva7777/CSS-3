@@ -1,0 +1,232 @@
+<head>
+    <style>
+        body {
+          margin:0;
+          padding:0;
+          min-width: 1280px;
+          height:100vh;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+
+        .home-office {
+          position: relative;
+          background-color: #9dd0d1;
+          box-shadow: inset 0 -150px #72b6b8;
+          width: 1200px;
+          height:500px;
+          overflow: hidden;
+        }
+
+        input#open {
+          display: none;
+        }
+
+        .desk {
+            position: relative;
+            z-index:2;
+            top:20px;
+        }
+
+        .desk-top {
+            position: relative;
+            perspective: 1100px;
+            top:220px;
+        }
+
+        .desk-top:before {
+            content:"";
+            position: absolute;
+            width:900px;
+            height: 400px;
+            background-color: #e8e1d1;
+            transform: rotateX(75deg) translate(-50%,-50%);
+            left:50%;
+            top:0;
+        }
+
+        .desk-top:after {
+            content:"";
+            position: absolute;
+            width:900px;
+            height:25px;
+            background-color: #e8e1d1;
+            box-shadow: inset 0 5px #f7f1e5;
+            transform: translate(-50%,-50%);
+            top:212px;
+            left:50%;
+        }
+
+        .desk-legs {
+            position: absolute;
+            width: 700px;
+            height:25px;
+            background-color: #d3c0b1;
+            transform: translate(-50%,-50%);
+            left:50%;
+            top:457px;
+        }
+
+        .desk-legs:before {
+            content:"";
+            position: absolute;
+            width:12px;
+            height:100px;
+            background-color: #e8d8c7;
+            left:-24px;
+            box-shadow:12px 0 #cfc0b0, 720px 0 #cfc0b0, 732px 0 #e8d8c7;
+        }
+
+        .desk-legs:after {
+            content:"";
+            position: absolute;
+            width:744px;
+            height:10px;
+            background-color: rgba(0,0,0,.3);
+            left:-24px;
+        }
+
+        .window {
+            position: absolute;
+            width: 350px;
+            height:250px;
+            background-color: #cdf7f3;
+            left:60%;
+            top:5%;
+            border: 10px solid #fff;
+            overflow: hidden;
+        }
+
+        .window:before {
+            content:"";
+            position: absolute;
+            background-color: #9de3d8;
+            width: 100px;
+            height:150px;
+            top:150px;
+            box-shadow:50px 40px #9de3d8, 190px -10px #9de3d8, 250px 60px #9de3d8, 200px -50px #a6ede5, 
+            260px 30px #a6ede5, 100px 20px #a6ede5, 60px -20px #a6ede5, -10px -60px #a6ede5;
+        }
+
+        .window:after {
+            content:"";
+            position: absolute;
+            width: 40px;
+            height:10px;
+            background-color: #8ed2c7;
+            top:100px;
+            left:10px;
+            box-shadow: 20px 20px #8ed2c7, 100px 50px #8ed2c7, 210px 20px #8ed2c7;
+        }
+
+        .clouds {
+            position: absolute;
+            z-index:1;
+            background-color: white;
+            width: 60px;
+            height: 15px;
+            border-radius: 20px;
+            top:20px;
+            left:20px;
+            box-shadow: 100px 50px white,200px -10px white, 230px 20px white;
+        }
+
+        .clouds:before {
+            content:"";
+            position: absolute;
+            width: 350px;
+            height: 280px;
+            background-color: rgba(255,255,255,.2);
+            left:-20px;
+            top:-20px;
+        }
+
+        .clouds:after {
+            position: absolute;
+            content:"";
+            width: 50px;
+            height:300px;
+            background-color: rgba(255,255,255,.4);
+            transform: skew(15deg);
+            top: -20px;
+            left:40px;
+            box-shadow: 200px 0 rgba(255,255,255,.4);
+        }
+
+        .blinds {
+            position: absolute;
+            width:7px;
+            height:255px;
+            background-color: white;
+            top:30px;
+            left: 75%;
+            z-index:5;
+        }
+
+        .blinds:before {
+            content:"";
+            position: absolute;
+            width:410px;
+            border-radius: 10px 10px 0 0;
+            height:10px;
+            background-color: white;
+            top:-10px;
+            left:-203px;
+        }
+
+        .open {
+            width: 380px;
+            height:30px;
+            background-color: #0a9396;
+            position: absolute;
+            top:0;
+            left:-187px;
+            box-shadow: inset 0 -10px rgba(0,0,0,.1);
+            transition: .3s;
+            cursor: pointer;
+        }
+
+        .open:before {
+            content:"";
+            position: absolute;
+            width:2px;
+            height: 110px;
+            background-color: #333;
+            left:101%;
+            top:0;
+        }
+
+        .open:after {
+            content:"";
+            position: absolute;
+            background-color: #333;
+            width:10px;
+            height:30px;
+            border-radius:100px;
+            left:100.1%;
+            top:100px;
+            cursor: pointer;
+        }
+
+        #open:checked + .open {
+            height: 260px;
+        }
+    </style>
+</head>
+<body> 
+    <div class="home-office">
+        <div class="desk">
+          <div class="desk-top"></div>
+          <div class="desk-legs"></div>
+        </div>
+        <div class="window">
+          <div class="clouds"></div>
+        </div>
+         <div class="blinds">
+          <input id="open" type="checkbox">
+          <label class="open" for="open"></label>
+        </div>
+      </div>
+</body>
