@@ -1,0 +1,253 @@
+<head>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #e7c59b;
+        }
+
+        .coffeecup {
+            position: relative;
+        }
+
+        .coffeecup:before {
+            content:"";
+            position: absolute;
+            width: 200px;
+            height: 10px;
+            border-radius:10px;
+            background-color: #d4a373;
+            top:191px;
+            left:-65px;
+        }
+
+        .cup {
+            position: relative;
+            height:0;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            border-top: 150px solid #fefae0;
+            width: 120px;
+        }
+
+        .cup:before {
+            content:"";
+            position: absolute;
+            background-color: #fefae0;
+            width: 120px;
+            height: 50px;
+            border-radius: 0 0 15px 15px;
+            top:-5px;
+            left:0;
+        }
+
+        .cup:after {
+            content:"";
+            position: absolute;
+            border-radius: 0 0 0 15px;
+            background-color: rgba(0,0,0,0.09);
+            width: 40px;
+            height: 40px;
+            top:5px;
+        }
+
+        .shadow {
+            position: absolute;
+            height:0;
+            border-right: 0px solid transparent;
+            border-left: 2px solid transparent;
+            border-top: 40px solid rgba(0,0,0,0.09);
+            width: 40px;
+            top:10px;
+            left:0;
+        }
+
+        .label {
+            position: absolute;
+            height:0;
+            border-right: 7px solid transparent;
+            border-left: 7px solid transparent;
+            border-top: 130px solid #e9edc9;
+            width: 125px;
+            top:35px;
+            left:-4px;
+        }
+
+        .label:before {
+            content:"";
+            position: absolute;
+            height:0;
+            border-right: 0px solid transparent;
+            border-left: 7px solid transparent;
+            border-top: 130px solid #ccd5ae;
+            width: 45px;
+            top:-130px;
+            left:-7px;
+        }
+
+        .label:after {
+            content:"";
+            position: absolute;
+            width: 120px;
+            background-color: rgba(0,0,0,0.09);
+            height: 5px;
+            left:2px;
+        }
+
+        .cover {
+            position: absolute;
+            width: 150px;
+            height: 25px;
+            background-color: #fefae0;
+            top:-15px;
+            left:-10px;
+            border-radius:5px;
+        }
+
+        .cover:before {
+            content:"";
+            position: absolute;
+            background-color: rgba(0,0,0,0.09);
+            width:130px;
+            height:5px;
+            top:25px;
+            left:10px;
+        }
+
+        .cover:after {
+            content:"";
+            position: absolute;
+            background-color: rgba(0,0,0,0.09);
+            width: 47px;
+            height: 25px;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .top {
+            position: absolute;
+            background-color: #fefae0;
+            width: 130px;
+            height: 20px;
+            border-radius: 25px 25px 0 0;
+            left:0;
+            top:-35px;
+        }
+
+        .top:before {
+            content:"";
+            position: absolute;
+            background-color: rgba(0,0,0,0.09);
+            border-radius: 25px 0 0 0;
+            width:34px;
+            height: 20px;
+        }
+
+        .top:after {
+            content:"";
+            position: absolute;
+            background-color: rgba(255, 255, 255,0.5);
+            border-radius:20px;
+            height: 20px;
+            width: 40px;
+            top:-40px;
+            left:150px;
+            box-shadow: -20px -80px rgba(255, 255, 255,0.5), -170px -40px rgba(255, 255, 255,0.5);
+        }
+
+        .steam {
+            position: absolute;
+            width: 70px;
+            height: 20px;
+            background-color: rgba(255, 255, 255,0.5);
+            border-radius:20px;
+            top:-55px;
+            left:70px;
+            box-shadow: 0 -20px rgba(255, 255, 255,0.5), 10px -40px rgba(255, 255, 255,0.5), 
+            0 -60px rgba(255, 255, 255,0.5), -25px -80px rgba(255, 255, 255,0.5);
+        }
+
+        .steam:before {
+            content:"";
+            position: absolute;
+            width: 70px;
+            height: 20px;
+            background-color: #faedcd;
+            border-radius:20px;
+            left:-50px;
+            box-shadow: 85px 0 #faedcd, 100px -40px #faedcd, 18px -40px #faedcd, 0px -80px #faedcd, 82px -80px #faedcd;
+        }
+
+        .steam:after {
+            content:"";
+            position: absolute;
+            border-radius: 20px;
+            width: 110px;
+            height: 20px;
+            background-color: rgba(255, 255, 255,0.5);
+            top:-100px;
+            left:-60px;
+        }
+
+        .logo {
+            position: absolute;
+            overflow: hidden;
+            background-color: #333;
+            width: 40px;
+            height: 20px;
+            border-radius: 0 0 50px 50px;
+            top:100px;
+            left:75px;
+        }
+
+        .logo:before {
+            content:"";
+            position: absolute;
+            background-color: #a4161a;
+            width:30px;
+            height: 20px;
+            border-radius:50%;
+            top:7px;
+            left:2px;
+        }
+
+        .eyes {
+            position: absolute;
+        }
+
+        .eyes:before, .eyes:after {
+            content:"";
+            position: absolute;
+            width:18px;
+            height: 18px;
+            border-right: 5px solid #333;
+            border-top: 5px solid #333;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid transparent;
+            border-radius:100px;
+            transform: rotate(-45deg);
+            top:-70px;
+        }
+
+        .eyes:before {
+            left:95px;
+        }
+
+        .eyes:after {
+            left:65px;
+        }
+    </style>
+</head>
+<body>
+    <div class="coffeecup">
+        <div class="cup"></div>
+        <div class="shadow"></div>
+        <div class="label"></div>
+        <div class="cover"></div>
+        <div class="top"></div>
+        <div class="steam"></div>
+        <div class="logo"></div>
+        <div class="eyes"></div>
+    </div>
+</body>
