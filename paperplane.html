@@ -1,0 +1,175 @@
+<head>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .paperplane {
+            position: relative;
+            overflow: hidden;
+            width: 400px;
+            height: 400px;
+            background-color: #3579f8;
+            border-radius: 50%;
+        }
+
+        .plane {
+            position: absolute;
+            left: 200px;
+            top: 150px;
+            animation: move 3s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateY(0) rotateX(0);
+            }
+            25% {
+                transform: translateY(-30deg) rotateX(40deg);
+            }
+            50% {
+                transform: translateY(0) rotateX(0);
+            }
+            75% {
+                transform: translateY(30px) rotate(-40deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0);
+            }
+        }
+
+        .wingRight {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 22.5px solid transparent;
+            border-right: 12.5px solid transparent;
+            border-bottom: 115px solid white;
+            transform: rotate(61deg);
+            z-index: 4;
+        }
+
+        .bottom {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 12.5px solid transparent;
+            border-right: 12.5px solid transparent;
+            border-bottom: 25.5px solid #676d70;
+            top: 71px;
+            left: -52.5px;
+            transform: rotate(-5deg);
+            z-index: 3;
+        }
+
+        .top {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 30px solid #c1c7c9;
+            top: 65px;
+            left: -60px;
+            transform: rotate(5deg);
+            z-index: 1;
+        }
+
+        .middle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 135px solid #c1c7c9;
+            top: -13.5px;
+            left: -7.5px;
+            transform: rotate(72deg);
+            z-index: 2;
+        }
+
+        .wingLeft {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-bottom: 135px solid white;
+            transform: rotate(78deg) skewY(-35deg);
+            left: -18.5px;
+            top: -30px;
+            z-index: 3;
+        }
+
+        .cloud {
+            position: absolute;
+            top: 50px;
+            left: 100px;
+        }
+
+        @keyframes cloud {
+            from {
+                left: -150px;
+            }
+            to {
+                left: 400px;
+            }
+        }
+
+        .cloudOne, .cloudTwo, .cloudThree {
+            position: absolute;
+            width: 50px;
+            height: 25px;
+            background-color: #fff;
+            border-radius: 100px 100px 0 0;
+        }
+
+        .cloudOne {
+            top: 0;
+            left: 0;
+            animation: cloud 3s linear infinite reverse;
+        }
+
+        .cloudTwo {
+            top: 50px;
+            left: 100px;
+            animation: cloud 2.5s linear infinite reverse;
+        }
+
+        .cloudThree {
+            top: 250px;
+            left: 50px;
+            animation: cloud 2.8s linear infinite reverse;
+        }
+
+        .cloudOne::before, .cloudTwo::before, .cloudThree::before {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 12.5px;
+            background-color: #fff;
+            border-radius: 100px 100px 0 0;
+            left: -20px;
+            top: 12.5px;
+            box-shadow: 65px 0 white;
+        }
+    </style>
+</head>
+<body>
+    <div class="paperplane">
+        <div class="plane">
+          <div class="wingRight"></div>
+          <div class="wingLeft"></div>
+          <div class="bottom"></div>
+          <div class="top"></div>
+          <div class="middle"></div>
+        </div>
+         <div class="clouds">
+          <div class="cloudOne"></div>
+          <div class="cloudTwo"></div>
+          <div class="cloudThree"></div>
+        </div>
+    </div>
+</body>
