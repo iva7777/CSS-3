@@ -1,0 +1,176 @@
+<head>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .contact-envelope {
+            position: relative;
+            border-radius: 50%;
+            background-color: #3f32d3;
+            width: 200px;
+            height: 200px;
+            z-index: -1;
+        }
+
+        .envelope {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            animation: bounce 1s ease infinite;
+        }
+
+        .envelope-back {
+            position: absolute;
+            background-color: #e19605;
+            width: 110px;
+            height: 70px;
+            top: 80px;
+            z-index: 1;
+        }
+
+        .envelope-back::before {
+            content: "";
+            position: absolute;
+            background-color: #e19605;
+            border-radius: 10px;
+            width: 84px;
+            height: 84px;
+            top: -39px;
+            left: 13px;
+            transform: rotate(-45deg);
+        }
+
+        .message {
+            position: absolute;
+            z-index: 2;
+            background-color: #eae2b7;
+            width: 90px;
+            height: 95px;
+        }
+
+        .message::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            left: 7.5px;
+            background-color: #ced4da;
+            width: 75px;
+            height: 3px;
+            box-shadow: 0 10px #ced4da, 0 20px #ced4da, 0 30px #ced4da,
+            0 40px #ced4da, 0 50px #ced4da, 0 60px #ced4da,
+            0 70px #ced4da;
+        }
+
+        .envelope-front::before, .envelope-front {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 35px solid transparent;
+            border-bottom: 35px solid transparent;
+        }
+
+        .envelope-front {
+            border-right: 60px solid #f9c748;
+            z-index: 3;
+            left: 95px;
+            top: 80px;
+        }
+
+        .envelope-front::before {
+            content: "";
+            border-left: 60px solid #f9c748;
+            left: -50px;
+            top: -35px;
+        }
+
+        .envelope-front::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 55px solid transparent;
+            border-bottom: 45px solid #fcb933;
+            border-right: 55px solid transparent;
+            left: -50px;
+            top: -10px;
+        }
+
+        .shadow {
+            position: absolute;
+            width: 110px;
+            height: 10px;
+            background-color: rgba(0, 0, 0, .4);
+            border-radius: 50%;
+            top: 145px;
+            left: 45px;
+            z-index: -2;
+            animation: scale 1s linear infinite;
+        }
+
+        @keyframes bounce {
+        0% { 
+            transform: scale(1,1) translateY(0); 
+        }
+        10% {
+             transform: scale(1.1,.9) translateY(0); 
+        }
+        30% { 
+            transform: scale(.9,1.1)   translateY(-55px);
+        }
+        50% { 
+            transform: scale(1.05,.95) translateY(0); 
+        }
+        58% { 
+            transform: scale(1,1) translateY(-7px); 
+        }
+        65% { 
+            transform: scale(1,1) translateY(0);
+        }
+        100% { 
+            transform: scale(1,1) translateY(0);
+        }
+    }
+
+        @keyframes scale {
+            0% {
+                transform: scaleX(1);
+            }
+            10% {
+                transform: scaleX(1);
+            }
+            30% {
+                transform: scaleX(0.5);
+            }
+            50% {
+                transform: scaleX(1.1);
+            }
+            58% {
+                transform: scaleX(1);
+            }
+            75% {
+                transform: scaleX(0.98);
+            }
+            100% {
+                transform: scaleX(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-envelope">
+        <div class="envelope">
+          <div class="envelope-back"></div>
+          <div class="message"></div>
+          <div class="envelope-front"></div>
+        </div>
+        <div class="shadow"></div>
+    </div>
+</body>
