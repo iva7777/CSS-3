@@ -1,0 +1,90 @@
+<head>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height:100vh;
+        }
+
+        .coffeeCup {
+            position: relative;
+            width: 50px;
+            height:0;
+            border-top: 130px solid palevioletred;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+        }
+
+        .coffeeCup:before {
+            content:"";
+            position: absolute;
+            border:3px solid palevioletred;
+            top:-145px;
+            width:95px;
+            height: 10px;
+            left:-25.5px;
+        }
+
+        .coffeeCup:after {
+            content:"";
+            position: absolute;
+            width:90px;
+            height: 10px;
+            border-radius:30px 30px 0 0;
+            top:-157px;
+            left:-19px;
+            background-color: palevioletred;
+        }
+
+        .cup {
+            position: absolute; 
+            width: 57px;
+            height:0;
+            border-top: 55px solid #fff;
+            border-left: 8.5px solid transparent;
+            border-right: 8.5px solid transparent;
+            top:-100px;
+            left:-12px;
+        }
+
+        .steam {
+            position: absolute;
+            width: 20px;
+            height:20px;
+            border-top: 3px solid palegoldenrod;
+            border-left: 3px solid palegoldenrod;
+            border-top-left-radius: 100%;
+            top:-185px;
+            left:-10px;
+        }
+
+        .steam:before {
+            content:"";
+            position: absolute;
+            width: 30px;
+            height:3px;
+            background-color: palegoldenrod;
+            left:20px;
+            top:-3px;
+        }
+
+        .steam:after {
+            content:"";
+            position: absolute;
+            width: 20px;
+            height:20px;
+            border-bottom: 3px solid palegoldenrod;
+            border-right: 3px solid palegoldenrod;
+            border-bottom-right-radius: 100%;
+            top:-23px;
+            left:48px;
+        }
+    </style>
+</head>
+<body>
+    <div class="coffeeCup">
+        <div class="cup"></div>
+        <div class="steam"></div>
+    </div>
+</body>
