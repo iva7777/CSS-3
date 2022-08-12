@@ -1,0 +1,251 @@
+<head>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cocktail-party {
+            position: absolute;
+            width: 330px;
+            height: 5px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        .green-drink {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            top: -85px;
+            left: 35px;
+            border: 4px solid #333;
+            border-radius: 50%;
+            background: repeating-conic-gradient(#333 20deg, #333 30deg, #ffea00 35deg, #ffea00 70deg);
+            transition: .3s ease;
+        }
+
+        .green-drink:hover {
+            transform: translateY(-20px);
+        }
+
+        .green-drink::before {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 0;
+            top: 12px;
+            left: 10px;
+            border-right: 10px solid transparent;
+            border-left: 10px solid transparent;
+            border-top: 70px solid #333;
+        }
+
+        .green-drink::after {
+            content: "";
+            position: absolute;
+            width: 32px;
+            height: 0;
+            top: 20px;
+            left: 15.5px;
+            border-right: 8.5px solid transparent;
+            border-left: 8.5px solid transparent;
+            border-top: 59px solid #70e000;
+        }
+
+        .juice {
+            position: absolute;
+            width: 46px;
+            height: 0;
+            top: 16px;
+            left: 15px;
+            border-top: 15px solid #fff;
+            border-right: 2px solid transparent;
+            border-left: 2px solid transparent;
+            z-index: 1;
+        }
+
+        .juice::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 60px;
+            top: -35px;
+            left: 25px;
+            border-top: 4px solid #333;
+            border-left: 4px solid #333;
+            transform: rotate(10deg);
+        }
+
+        .juice::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: 8px;
+            left: 8px;
+            background-color: rgba(255, 255, 255, .5);
+            box-shadow: 20px 20px rgba(255, 255, 255, .5), 25px 5px rgba(255, 255, 255, .5);
+            transform: rotate(25deg);
+        }
+
+        .martini {
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: -24px;
+            left: 130px;
+            border-bottom: 25px solid #333;
+            border-right: 35px solid transparent;
+            border-left: 35px solid transparent;
+            transition: .3s ease;
+        }
+
+        .martini:hover {
+            transform: translateY(-20px);
+        }
+
+        .martini::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: -25px;
+            top: 5px;
+            border-bottom: 18px solid #fff;
+            border-right: 25px solid transparent;
+            border-left: 25px solid transparent;
+        }
+
+        .martini::after {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 40px;
+            background-color: #333;
+            top: -35px;
+            left: -2px;
+        }
+
+        .glass {
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: -82px;
+            left: -50px;
+            border-top: 50px solid #333;
+            border-right: 50px solid transparent;
+            border-left: 50px solid transparent;
+        }
+
+        .glass::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: -46px;
+            left: -40px;
+            border-top: 40px solid #fff;
+            border-right: 40px solid transparent;
+            border-left: 40px solid transparent;
+        }
+
+        .glass::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: -36px;
+            left: -30px;
+            border-top: 30px solid #ff9500;
+            border-right: 30px solid transparent;
+            border-left: 30px solid transparent;
+        }
+
+        .olives {
+            position: absolute;
+            background-color: #333;
+            width: 13px;
+            height: 13px;
+            top: -100px;
+            left: 25px;
+            border-radius: 50%;
+        }
+
+        .olives::before {
+            content: "";
+            position: absolute;
+            background-color: #333;
+            width: 4px;
+            height: 60px;
+            top: -10px;
+            left: -4px;
+            border-radius: 10px;
+            transform: rotate(35deg);
+        }
+
+        .olives::after {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            top: 45px;
+            left: -20px;
+            background-color: rgba(255, 255, 255, .5);
+            border-radius: 50%;
+            box-shadow: -5px -10px rgba(255, 255, 255, .5), -10px 5px rgba(255, 255, 255, .5),
+            10px -10px rgba(255, 255, 255, .5);
+        }
+
+        .whiskey {
+            position: absolute;
+            width: 55px;
+            height: 8px;
+            top: -13px;
+            left: 220px;
+            border: 5px solid #333;
+            transition: .3s ease;
+        }
+
+        .whiskey:hover {
+            transform: translateY(-20px);
+        }
+
+        .whiskey::before {
+            content: "";
+            position: absolute;
+            width: 55px;
+            height: 35px;
+            left: -5px;
+            top: -45px;
+            border: 5px solid #333;
+            box-shadow: inset 0 -20px #dd6e42;
+        }
+
+        .whiskey::after {
+            content: "";
+            position: absolute;
+            background-color: rgba(255, 255, 255, .5);
+            width: 8px;
+            height: 8px;
+            left: 7px;
+            top: -22px;
+            transform: rotate(25deg);
+            box-shadow: 12px 1px rgba(255, 255, 255, .5);
+        }
+    </style>
+</head>
+<body>
+    <div class="cocktail-party">
+        <div class="green-drink">
+          <div class="juice"></div>
+        </div>
+        <div class="martini">
+          <div class="glass"></div>
+          <div class="olives"></div>
+        </div>
+        <div class="whiskey"></div>
+      </div>
+</body>
