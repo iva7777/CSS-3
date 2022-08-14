@@ -1,0 +1,84 @@
+<head>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: lightpink;
+            overflow: hidden;
+        }
+
+        .ice-cream {
+            position: relative;
+            top: 50px;
+        }
+
+        .stick {
+            position: relative;
+            width: 40px;
+            height: 140px;
+            border-radius: 20px;
+            background-color: #d4a276;
+        }
+
+        .stick::before {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 200px;
+            background-color: #fffcf2;
+            border-radius: 100px 100px 10px 10px;
+            top: -130px;
+            left: -55px;
+        }
+
+        .stick::after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 20px;
+            background-color: rgba(0, 0, 0, .2);
+            top: 70px;
+        }
+
+        .flavour {
+            position: absolute;
+            width: 161px;
+            height: 140px;
+            background-color: #583101;
+            border-radius: 100% 100% 0 0;
+            top: -135px;
+            left: -60.5px;
+        }
+
+        .flavour:before {
+            content:"";
+            position: absolute;
+            width: 23px;
+            background-color: #583101;
+            height:60px;
+            border-radius:20px;
+            top:120px;
+            box-shadow: 23px 5px #fffcf2, 46px -10px #583101, 69px -5px #fffcf2, 92px -5px #583101, 115px 5px #fffcf2, 138px 5px #583101;
+        }
+
+        .flavour:after {
+            content:"";
+            position: absolute;
+            border-right: 5px solid rgba(255,255,255,0.5);
+            border-top: 5px solid rgba(255,255,255,0.5);
+            width:60px;
+            height: 60px;
+            border-top-right-radius: 100%;
+            top:10px;
+            left:85px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ice-cream">
+        <div class="stick"></div>
+        <div class="flavour"></div>
+    </div>
+</body>
