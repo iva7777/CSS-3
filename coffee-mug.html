@@ -1,0 +1,102 @@
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        #circle {
+            position: relative;
+            background-color: #f2e9e4;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: inset 5px -5px 0 rgba(0, 0, 0, 0.07);
+        }
+
+        .mug {
+            position: relative;
+            width: 170px;
+            height: 180px;
+            background-color: #159bdf;
+            top: 135px;
+            left: 140px;
+        }
+
+        .mug::after {
+            content: "";
+            position: absolute;
+            width: 170px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #159bdf;
+            top: -18px;
+        }
+
+        .mug::before {
+            content: "";
+            position: absolute;
+            width: 170px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #159bdf;
+            top: 158px;
+            box-shadow: 1px 25px 3px rgba(0, 0, 0, 0.09);
+        }
+
+        .handle {
+            position: absolute;
+            border: 17px solid #159bdf;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            left: 100px;
+            top: 25px;
+        }
+
+        .inside {
+            content: "";
+            position: absolute;
+            width: 155px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #3fb8f5;
+            top: -13px;
+            left: 7px;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .coffee {
+            position: absolute;
+            width: 200px;
+            height: 40px;
+            left: -20px;
+            border-radius: 50%;
+            background-color: #432818;
+            top: 30px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="circle">
+             <div class="mug">
+               <div class="handle"></div>
+               <div class="inside">
+                 <div class="coffee"></div>
+               </div>
+             </div>
+             <div class="fill"></div>
+        </div>
+    </div>        
+</body>
