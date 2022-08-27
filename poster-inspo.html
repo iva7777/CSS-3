@@ -1,0 +1,105 @@
+<!--Inspired by Mike Joyce-->
+<head>
+    <style>
+        :root {
+            font-size: 70.945vh;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Roboto", Arial, sans-serif;
+            font-weight: 500;
+            background-color: #171a21;
+        }
+
+        .poster {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            grid-template-rows: 1fr 1fr 1.1fr;
+            width: 1em;
+            height: 100vh;
+            margin: 0 auto;
+            color: #dfe3d4;
+            background-color: #00000a;
+        }
+
+        .semi-circle {
+            grid-column: 1 / -1;
+            grid-row-start: 3;
+            background-color: #fcac0d;
+            clip-path: ellipse(50% 100% at 50% 0%);
+        }
+
+        .circle {
+            clip-path: circle(50% at 50% 50%);
+        }
+
+        .circle-grey, .square {
+            background-color: #dfe0d8;
+        }
+
+        .circle-red {
+            background-color: #ee281b;
+            height: 100%;
+        }
+
+        .triangle {
+            background-color: #00b2a4;
+            clip-path: polygon(0 0, 0% 100%, 100% 100%);
+        }
+
+        .event-info {
+            display: grid;
+            align-content: space-between;
+            padding: 0.0335em 0.02em 0.03em;
+        }
+
+        .event-title {
+            font-size: 0.088em;
+        }
+
+        .event-date, .event-address {
+            font-size: 0.02em;
+            line-height: 1.5;
+            letter-spacing: 0.025em;
+        }
+
+        .event-date li:first-of-type {
+            margin-bottom: 0.85em;
+        }
+
+        .event-address {
+            grid-column-start: 2;
+            grid-row-start: 3;
+            color: #000;
+            padding: 1.6em 1em;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="circle circle-grey"></div>
+        <div class="triangle"></div>
+        <div class="square">
+            <div class="circle circle-red"></div>
+        </div>
+        <div class="event-info">
+            <ul class="event-date">
+                <li>held over the entire summer</li>
+                <li>wednesday thru sunday / 11 pm & 1 am <br>june 24 thru august 28 1970</li>
+            </ul>
+            <h1 class="event-title">the velvet underground</h1>
+        </div>
+        <div class="semi-circle"></div>
+        <div class="event-address">
+            <ul>
+                <li>upstairs at max's kansas city</li>
+                <li>213 park avenue south, new york city</li>
+            </ul>
+        </div>
+    </div>
+</body>
