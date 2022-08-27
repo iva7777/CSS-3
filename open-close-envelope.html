@@ -1,0 +1,159 @@
+<head>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height:100vh;
+            background-color: #d2b7e5;
+        }
+
+        .envelope {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .back {
+            position: relative;
+            width:250px;
+            height: 200px;
+            background-color: #6247aa;
+        }
+
+        .letter {
+            position: absolute;
+            background-color: #fff;
+            width:230px;
+            height: 180px;
+            top:10px;
+            left:10px;
+            transition: .2s;
+        }
+
+        .letter:before {
+            position: absolute;
+            content:"";
+            background-color: #333;
+            width: 80px;
+            height: 80px;
+            top:75px;
+            left:75px;
+        }
+
+        .letter:after {
+            position: absolute;
+            content:"";
+            width:30px;
+            height:30px;
+            background-color: #fff;
+            top:82px;
+            left: 82px;
+            box-shadow: 36px 0 #fff, 36px 36px #fff, 0px 36px #fff;
+        }
+
+        .text {
+            text-align: center;
+            font-size: 17px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-top:20px;
+            font-weight: bold;
+        }
+
+        .text:before, .text:after {
+            content:"";
+            position: absolute;
+            width: 5px;
+            border-radius:10px;
+            background-color: #333;
+            height: 20px;
+            top:60px;
+        }
+
+        .text:before {
+            left:108px;
+            transform: rotate(-25deg);
+        }
+
+        .text:after {
+            left:118px;
+            transform: rotate(25deg);
+        }
+
+        .front {
+            position: absolute;
+            border-right: 130px solid #815ac0;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            height:0;
+            width:0;
+            top:0;
+            left:120px;
+            z-index:3;
+        }
+
+        .front:before {
+            content:"";
+            position: absolute;
+            border-left: 130px solid #815ac0;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            height:0;
+            width:0;
+            top:-100px;
+            left:-120px;
+        }
+
+        .front:after {
+            content:"";
+            position: absolute;
+            border-bottom: 105px solid #7251b5;
+            border-left: 125px solid transparent;
+            border-right:125px solid transparent;
+            height:0;
+            width:0;
+            top:-5px;
+            left:-120px;
+        }
+
+        .top {
+            position: absolute;
+            border-top: 105px solid #9163cb;
+            border-left: 125px solid transparent;
+            border-right:125px solid transparent;
+            height:0;
+            width:0;
+            top:0;
+            transform-origin: top;
+            transition: .4s;
+        }
+
+        .shadow {
+            position: absolute;
+            background-color: rgba(0,0,0,0.1);
+            width:250px;
+            height:10px;
+            top:220px;
+            border-radius:50%;
+        }
+
+        .envelope:hover .top {
+            transform: rotateX(160deg);
+        }
+
+        .envelope:hover .letter {
+            transform: translateY(-100px);
+            z-index:2;
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope">
+        <div class="back"></div>
+        <div class="letter">
+          <div class="text">Present</div>
+        </div>
+        <div class="front"></div>
+        <div class="top"></div>
+        <div class="shadow"></div>
+    </div>
+</body>
