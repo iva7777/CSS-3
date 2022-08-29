@@ -1,0 +1,369 @@
+<!--check the thorns-->>
+<head>
+    <style>
+        html, body {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background: #040446;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            position: absolute;
+            width: 100px;
+            height: 300px;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            transform: scale(.6);
+        }
+
+        .container div {
+            position: absolute;
+        }
+
+        .container .glass {
+            width: 250px;
+            height: 420px;
+            top: -100px;
+            left: -80px;
+            border: 3px solid rgba(255, 255, 255, .5);
+            border-radius: 300px 300px 0 0;
+            border-bottom: 15px solid rgba(255, 255, 255, .5);
+        }
+
+        .container .glass::after {
+            content: "";
+            position: absolute;
+            background: rgba(255, 255, 255, 0.28);
+            height: 80px;
+            top: 430px;
+            left: 10px;
+            border-radius: 100px;
+        }
+
+        .container .glass::before {
+            content: "";
+            position: absolute;
+            background: rgba(255, 255, 255, 0.28);
+            width: 8px;
+            height: 15px;
+            top: 430px;
+            top: 280px;
+            left: 10px;
+            border-radius: 100px;
+        }
+
+        .container .glow {
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            border-radius: 100%;
+            border: 1px solid rgba(245, 148, 184, 0.47);
+            box-shadow: 0 0 10px #f594b8;
+            left: -40px;
+            top: -40px;
+            transition: all .5s ease;
+            animation: glowing 2.5s ease-in-out infinite;
+        }
+
+        .container .rose-petals > div {
+            position: absolute;
+            width: 45px;
+            height: 80px;
+            background: #d52d58;
+            transition: all .5s ease-in-out;
+        }
+
+        .container .rose-petals > div:nth-child(1) {
+            background: #d52d58;
+            left: 20px;
+            top: -6px;
+            border-radius: 15px;
+        }
+
+        .container .rose-petals > div:nth-child(2),
+        .container .rose-petals > div:nth-child(4),
+        .container .rose-petals > div:nth-child(6) {
+            background: #d52d58;
+            left: 0px;
+            transform-origin: bottom right;
+            border-radius: 0 30px 0 30px;
+        }
+
+        .container .rose-petals > div:nth-child(3),
+        .container .rose-petals > div:nth-child(5),
+        .container .rose-petals > div:nth-child(7) {
+            background: #d52d58;
+            left: 40px;
+            transform-origin: bottom left;
+            border-radius: 30px 0 30px 0;
+        }
+
+        .container .rose-petals > div:nth-child(2) {
+            animation: openRose2 3s ease-in-out;
+            animation-fill-mode: forwards;
+            z-index: 5;
+            background: #9e183a;
+            top: 10px;
+            height: 70px;
+            animation-delay: 2s;
+        }
+
+        .container .rose-petals > div:nth-child(3) {
+            animation: openRose3 3s ease-in-out;
+            animation-fill-mode: forwards;
+            z-index: 4;
+            background: #9e183a;
+            top: 10px;
+            height: 70px;
+            animation-delay: 2s;
+        }
+
+        .container .rose-petals > div:nth-child(4) {
+            animation: openRose4 3s ease-in-out;
+            animation-fill-mode: forwards;
+            z-index: 3;
+            background: #b81b43;
+            top: 5px;
+            height: 75px;
+            animation-delay: 2s;
+        }
+
+        .container .rose-petals > div:nth-child(5) {
+            animation: openRose5 3s ease-in-out;
+            animation-fill-mode: forwards;
+            z-index: 2;
+            background: #b81b43;
+            top: 5px;
+            height: 75px;
+            animation-delay: 2s;
+        }
+
+        .container .rose-petals > div:nth-child(6) {
+            animation: openRose6 3s ease-in-out;
+            animation-fill-mode: forwards;
+            z-index: 1;
+            background: #c9204b;
+            top: "";
+            height: "";
+            animation-delay: 2s;
+        }
+
+        .container .rose-petals > div:nth-child(7) {
+            animation: openRose7 3s ease-in-out;
+            animation-fill-mode: forwards;
+            z-index: 0;
+            background: #c9204b;
+            top: "";
+            height: "";
+            animation-delay: 2s;
+        }
+
+        .container .rose-leaves > div:nth-last-child(1) {
+            position: absolute;
+            width: 55px;
+            height: 30px;
+            background: #338f37;
+            top: 60px;
+            left: 15px;
+            border-radius: 100px;
+        }
+
+        .container .rose-leaves > div:nth-child(1) {
+            width: 6px;
+            height: 230px;
+            background: #066406;
+            top: 80px;
+            left: 40px;
+            border: none;
+        }
+
+        .container .thorns > div {
+            width: 30px;
+            height: 30px;
+            background: #066406;
+            top: 100px;
+            left: 10px;
+        }
+
+        .container .thorns > div::after {
+            content: "";
+            position: absolute;
+            width: 41px;
+            height: 31px;
+            border-radius: 100%;
+            background: #122139;
+            left: -12px;
+            top: 17px;
+        }
+
+        .container .thorns > div::before {
+            content: "";
+            position: absolute;
+            width: 41px;
+            height: 31px;
+            border-radius: 100%;
+            background: #122139;
+            left: -11px;
+            top: -11px;
+            z-index: 0;
+        }
+
+        .container .thorns > div:nth-child(2) {
+            top: 150px;
+            left: 45px;
+            transform: rotate(180deg);
+        }
+
+        .container .thorns > div:nth-child(3) {
+            top: 180px;
+        }
+
+        .container .thorns > div:nth-child(4) {
+            top: 220px;
+            left: 45px;
+            transform: rotate(180deg);
+        }
+
+        .container .sparkles {
+            bottom: -40px;
+        }
+
+        .container .sparkles > div {
+            width: 4px;
+            height: 4px;
+            border-radius: 100px;
+            background: #ff96c0;
+            box-shadow: 0 0 12px 2px #ff4e85;
+            bottom: 0;
+            opacity: 0;
+            animation: sparkle 4s ease-in-out infinite;
+        }
+
+        .container .sparkles > div:nth-child(1) {
+            left: 60px;
+            animation-delay: 3s;
+        }
+
+        .container .sparkles > div:nth-child(2) {
+            left: 158px;
+            animation-delay: 2s;
+        }
+
+        .container .sparkles > div:nth-child(3) {
+            left: -22px;
+            animation-delay: 1s;
+        }
+
+        .container .sparkles > div:nth-child(4) {
+            left: 10px;
+            animation-delay: 1s;
+        }
+
+        .container .sparkles > div:nth-child(5) {
+            left: 177px;
+            animation-delay: 3s;
+        }
+
+        .container .sparkles > div:nth-child(6) {
+            left: -82px;
+            animation-delay: 2s;
+        }
+
+        .container .sparkles > div:nth-child(7) {
+            left: 45px;
+            animation-delay: 3s;
+        }
+
+        .container .sparkles > div:nth-child(8) {
+            left: 74px;
+            animation-delay: 3s;
+        }
+
+        .container .sparkles > div:nth-child(9) {
+            left: -79px;
+            animation-delay: 2s;
+        }
+
+        @keyframes sparkle {
+            50% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 250px;
+            }
+        }
+
+        @keyframes openRose2 {
+            50% {
+                transform: rotate(-90deg);
+                top: 80px;
+                left: 100px;
+            }
+            100% {
+                transform: rotate(-60deg);
+                top: 210px;
+                left: -30px;
+            }
+        }
+
+        @keyframes openRose3 {
+            100% {transform: rotate(60deg);}
+        }
+
+        @keyframes openRose4 {
+            100% {transform: rotate(-30deg);}
+        }
+
+        @keyframes openRose5 {
+            100% {transform: rotate(30deg);}
+        }
+
+        @keyframes glowing {
+            50% {box-shadow: 0 0 60px #f594b8;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="glass"></div>
+        <div class="thorns">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="glow"></div>
+        <div class="rose-leaves">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="rose-petals">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="sparkles">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</body>
