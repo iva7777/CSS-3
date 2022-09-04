@@ -1,0 +1,152 @@
+<head>
+    <style>
+        html, body {
+            width: 100%;
+            background: #87cefa;
+        }
+
+        .webpage {
+            position: relative;
+            margin: auto;
+            display: block;
+            width: 300px;
+            height: 340px;
+            background: #effcfe;
+            margin-top: 100px;
+            z-index: 1;
+        }
+
+        .sticky-left {
+            display: block;
+            position: absolute;
+            background: #f1536a;
+            width: 170px;
+            height: 150px;
+            top: 25%;
+            left: -75%;
+            border-bottom: solid 30px #ee2c4a;
+            z-index: 1;
+        }
+
+        .top-block {
+            position: absolute;
+            background: #7c90cf;
+            width: 85%;
+            height: 50%;
+            top: 5%;
+            left: 7.5%;
+            z-index: 2;
+        }
+
+        .middle-block-left {
+            position: absolute;
+            background: #26b56f;
+            width: 41%;
+            height: 25%;
+            bottom: 17.5%;
+            left: 7.5%;
+            z-index: 2;
+        }
+
+        .middle-block-right {
+            position: absolute;
+            background: #f1536a;
+            width: 41%;
+            height: 25%;
+            bottom: 17.5%;
+            right: 7.5%;
+            z-index: 2;
+        }
+
+        .bottom-block-left {
+            position: absolute;
+            background: #d56a47;
+            width: 25.5%;
+            height: 10%;
+            bottom: 5%;
+            left: 7.5%;
+            z-index: 2;
+        }
+
+        .bottom-block-middle {
+            position: absolute;
+            background: #e57c39;
+            width: 25.5%;
+            height: 10%;
+            bottom: 5%;
+            left: 37.5%;
+            z-index: 2;
+        }
+
+        .bottom-block-right {
+            position: absolute;
+            background: #eebf44;
+            width: 25.5%;
+            height: 10%;
+            bottom: 5%;
+            left: 67%;
+            z-index: 2;
+        }
+
+        .sticky-right {
+            display: block;
+            position: absolute;
+            background: #f9cb49;
+            width: 170px;
+            height: 150px;
+            top: 25%;
+            right: -75%;
+            border-bottom: solid 30px #f5b92d;
+            z-index: 1;
+        }
+
+        @media all and (max-width: 600px) {
+            .webpage {
+                position: relative;
+                margin: auto;
+                display: block;
+                width: 220px;
+                height: 250px;
+                background: #effcfe;
+                margin-top: 100px;
+                z-index: 1;
+        }
+
+            .sticky-left {
+                display: block;
+                position: absolute;
+                background: #f1536a;
+                width: 70px;
+                height: 50px;
+                top: 35%;
+                left: -35%;
+                border-bottom: solid 30px #ee2c4a;
+                z-index: 1;
+            }
+
+            .sticky-left {
+                display: block;
+                position: absolute;
+                background: #f9cb49;
+                width: 70px;
+                height: 50px;
+                top: 35%;
+                right: -35%;
+                border-bottom: solid 30px #f5b92d;
+                z-index: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="webpage">
+        <div class="sticky-left"></div>
+        <div class="top-block"></div>
+        <div class="middle-block-left"></div>
+        <div class="middle-block-right"></div>
+        <div class="bottom-block-left"></div>
+        <div class="bottom-block-middle"></div>
+        <div class="bottom-block-right"></div>
+        <div class="sticky-right"></div>
+    </div>
+</body>
