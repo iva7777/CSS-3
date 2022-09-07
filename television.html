@@ -1,0 +1,285 @@
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #9cb782;
+            overflow: hidden;
+        }
+
+        .tv-container, .tv {
+            position: relative;
+        }
+
+        .channels {
+            position: absolute;
+            width: 200px;
+            height: 150px;
+            top: 5px;
+            left: 15px;
+            border-radius: 20px;
+            border: 5px solid #333;
+        }
+
+        .one {
+            background: brown;
+        }
+
+        .two {
+            background-color: #84d2f6;
+        }
+
+        .two::before, .two::after {
+            content: "";
+            position: absolute;
+        }
+
+        .three {
+            overflow: hidden;
+        }
+
+        .three::before {
+            content: "";
+            position: absolute;
+            width: 31px;
+            height: 150px;
+            left: -5px;
+            top: 0;
+            background-color: #fff;
+            box-shadow: 30px 0 yellow, 60px 0 lightblue, 90px 0 lightgreen,
+            120px 0 pink, 150px 0 red, 175px 0 blue;
+        }
+
+        .four {
+            background-color: green;
+        }
+
+        .controls {
+            position: absolute;
+            width: 200px;
+            height: 300px;
+            background-color: #333;
+            top: 110px;
+            left: 35px;
+            border-radius: 20px;
+        }
+
+        .controls::before {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #333;
+            top: 100px;
+            left: 35px;
+            border: 25px solid #adb6c4;
+            border-radius: 50%;
+        }
+
+        .controls-one {
+            position: absolute;
+            left: 38px;
+            top: 148px;
+            word-spacing: 81px;
+        }
+
+        .move {
+            position: relative;
+            top: 50px;
+            left: 50px;
+        }
+
+        .clickButton {
+            cursor: pointer;
+        }
+
+        input#power {
+            display: none;
+        }
+
+        .power {
+            position: absolute;
+            background-color: red;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            box-shadow: inset 1px 1px white;
+            top: 122px;
+            left: 120px;
+            z-index: 1;
+        }
+
+        .power:active {
+            box-shadow: none;
+        }
+
+        .power::before, .power::after {
+            content: "";
+            position: absolute;
+        }
+
+        .power::before {
+            border-radius: 50%;
+            width: 17px;
+            height: 17px;
+            left: 5px;
+            top: 5px;
+            border: 2px solid #333;
+        }
+
+        .power::after {
+            width: 200px;
+            height: 150px;
+            left: -100px;
+            top: -212px;
+            border-radius: 20px;
+            border: 5px solid #333;
+        }
+
+        #power:checked + .power::after {
+            background-color: black;
+        }
+
+        .tv {
+            width: 270px;
+            height: 170px;
+            top: -100px;
+            background-color: #bb5437;
+            border: 5px solid #d8cdb5;
+            border-radius: 10px;
+        }
+
+        .tv::before, .tv::after {
+            content: "";
+            position: absolute;
+        }
+
+        .tv::before {
+            background-color: #f0b254;
+            width: 30px;
+            height: 140px;
+            border-radius: 5px;
+            left: 231px;
+            top: 15px;
+        }
+
+        .tv:after {
+            width:25px;
+            height: 2px;
+            background-color: #333;
+            left: 233.5px;
+            top:20px;
+            box-shadow: 0 5px #333, 0 10px #333,0 15px #333, 0 20px #333, 
+            0 25px #333, 0 30px #333, 0 35px #333, 0 40px #333, 0 45px #333, 
+            0 50px #333, 0 55px #333, 0 60px #333, 0 65px #333, 0 70px #333;
+        }
+
+        .aerial {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: -230px;
+            left: 80px;
+            border-right: 3px solid #707373;
+            border-bottom: 3px solid #707373;
+            transform: rotate(45deg);
+        }
+
+        .aerial::before {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 25px;
+            top: 90px;
+            left: 75px;
+            border-radius: 100px 100px 0 0;
+            background-color: #adb6c3;
+            transform: rotate(-45deg);
+        }
+
+        .shadow {
+            position: absolute;
+            width: 300px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, .3);
+            top: 130px;
+        }
+
+        .shadow::before {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 100px;
+            background-color: #4e351d;
+            top: -85px;
+            left: 30px;
+            box-shadow: 210px 0 #4e351d, 180px 0 #24180e, 30px 0 #24180e;
+        }
+    </style>
+    <script defer>
+        let changeChannel = 1;
+        showDivs(changeChannel);
+
+        function plusDivs(n) {
+            showDivs(changeChannel += n);
+        }
+
+        function currentDiv(n) {
+            showDivs(changeChannel = n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("channels");
+            var dots = document.getElementsByClassName("move");
+
+            if (n > x.length) {
+                changeChannel = 1;
+            }
+
+            if (n < 1) {
+                changeChannel = x.length;
+            }
+
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-red", "");
+            }
+
+            x[changeChannel - 1].style.display = "block";
+            dots[changeChannel - 1].className += " w3-red";
+        }
+    </script>
+</head>
+<body>
+    <div class="tv-container">
+        <input id="power" type="checkbox">
+        <label class="power" for="power"></label>
+        <div class="aerial"></div>
+        <div class="shadow"></div>
+        <div class="tv">
+            <div class="channels one"></div>
+            <div class="channels two"></div>
+            <div class="channels three"></div>
+            <div class="channels four"></div>
+        </div>
+      
+      <div class="controls">
+        <div class="controls-one">
+          <button class="clickButton w3-light-grey" onclick="plusDivs(-1)">❮ </button>
+          <button class="clickButton w3-light-grey" onclick="plusDivs(1)"> ❯</button>
+        </div>
+        <button class="clickButton move" onclick="currentDiv(1)">1</button> 
+        <button class="clickButton move" onclick="currentDiv(2)">2</button> 
+        <button class="clickButton move" onclick="currentDiv(3)">3</button> 
+        <button class="clickButton move" onclick="currentDiv(4)">4</button>
+      </div>
+    </div>
+</body>
