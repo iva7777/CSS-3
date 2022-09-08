@@ -24,7 +24,12 @@
         }
 
         .one {
-            background: brown;
+            background-image: repeating-radial-gradient(circle at 5% 85%, #333, #fff 0.0009px);
+            animation: bp .28s linear infinite;
+        }
+
+        @keyframes bp {
+            100% {background-image: repeating-radial-gradient(circle at 5% 85%, #fff, #333 0.0009px);}
         }
 
         .two {
