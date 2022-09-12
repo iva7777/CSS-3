@@ -1,0 +1,414 @@
+<head>
+    <style>
+          body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #6d5ca7;
+        }
+        .treadmill-animation {
+            position: relative;
+            top:-50px;
+            left:-50px;
+        }
+        .runner {
+            position: absolute;
+            left:-50px;
+            top:7px;
+            animation: jump .25s linear infinite;
+        }
+
+        @keyframes jump {
+            0% {transform: translateY(0);}
+            50% {transform: translateY(-15px);}
+        }
+
+        .runner-body {
+            position: absolute;
+            z-index:5;
+            width:50px;
+            height: 30px;
+            border-radius:0 0 50px 50px;
+            background-color: #119da4;
+            top:-10px;
+            left:-20px;
+            transform: rotate(10deg);
+        }
+
+        .runner-body:before {
+            content:"";
+            position: absolute;
+            background-color: #1d4e89;
+            border-radius: 50px 50px 0 0;
+            width:50px;
+            height: 80px;
+            top:-80px;
+        }
+
+        .runner-body:after {
+            content:"";
+            position: absolute;
+            background-color: #e6b8a2;
+            width: 25px;
+            height: 40px;
+            border-radius:30px;
+            left:15px;
+            top:-107px;
+        }
+
+        .right-arm, .left-arm, .right-arm:before, .left-arm:before {
+            position: absolute;
+            width:20px;
+            height: 60px;
+            border-radius: 30px;
+            transform-origin: top;
+        }
+        .right-arm, .left-arm {
+            top:-75px;
+            left:0;
+            animation: move .5s linear infinite;
+        }
+        .right-arm {
+            background-color: #edc4b3;
+            z-index:7;  
+        }
+        .left-arm {
+            background-color: #deab90;
+            z-index:-3;
+            animation-delay: .25s;    
+        }
+        .right-arm:after, .left-arm:after {
+            content:"";
+            position: absolute;
+            border-radius:50%;
+            width: 25px;
+            height: 25px;
+            top:75px;
+            left:35px;
+        
+        }
+        .right-arm:before, .right-arm:after {
+            background-color: #edc4b3;
+        }
+        .left-arm:before, .left-arm:after {
+            background-color: #deab90;
+        }
+        .right-arm:before, .left-arm:before {
+            content:"";
+            top: 45px;
+            left:-5px;
+            transform: rotate(-45deg);
+        }
+        
+        @keyframes move {
+            0%, 100% {transform: rotate(65deg);}
+            15% {transform: rotate(55deg);}
+            50% {transform: rotate(-35deg);}
+            75% {transform: rotate(-45deg);}
+        }
+
+        .runner-legs {
+            position: absolute;
+            transform: rotate(20deg);
+            z-index:4;
+        }
+        .right-leg, .left-leg, .right-calf, .left-calf, .right-shoe, .left-shoe {
+            position: absolute;
+            transform-origin: top;
+        }
+        .right-leg, .left-leg, .right-calf, .left-calf {
+            width:22px;
+            height: 70px;
+        }
+        .right-leg, .left-leg {
+            border-radius:0 0 20px 20px;
+            animation: run .5s linear infinite;
+        }
+        .right-leg {
+            background-color: #edc4b3;
+            z-index:5;
+            box-shadow: inset 0 40px #119da4;
+        }
+        .left-leg {
+            background-color: #deab90;
+            box-shadow: inset 0 40px #19647e;
+            animation-delay: .25s;
+            z-index:2;
+        }
+        .right-calf, .left-calf {
+            top:57px;
+            animation: calf .5s linear infinite;
+            transform: rotate(75deg);
+        }
+        .right-calf {
+            background-color: #edc4b3;
+        }
+        .left-calf {
+            background-color: #deab90;
+            animation-delay: .25s;
+        }
+        .right-shoe, .left-shoe {
+            width: 50px;
+            height: 20px;
+            border-radius: 0 30px 0 0;
+            overflow: hidden;
+            top: 50px;
+        }
+        .right-shoe {
+            background-color: #e6dcd7;
+            box-shadow: inset 0 -7px #b8475d;
+        }
+        .left-shoe {
+            background-color: #cdb9ae;
+            box-shadow: inset 0 -7px #83203e;
+        }
+        .right-shoe:before, .left-shoe:before {
+            content:"";
+            position: absolute;
+            background-color: #333;
+            height:2px;
+            width:10px;
+            top:0;
+            left:37px;
+            box-shadow: -3px -5px #333, -6px -10px #333;
+            transform: rotate(-75deg);
+        }
+
+        @keyframes run {
+            0%, 100% {transform: rotate(-65deg);}
+            15% {transform: rotate(-55deg);}
+            50% {transform: rotate(35deg);}
+            75% {transform: rotate(45deg);}
+            
+        }
+        @keyframes calf {
+            0%, 100% {transform: rotate(75deg);}
+            15% {transform: rotate(0deg);}
+            50% {transform: rotate(0);}
+            75% {transform: rotate(55deg);}
+        }
+        
+        .runner-face {
+            position: absolute;
+            background-color: #edc4b3;
+            z-index:8;
+            width:45px;
+            height:50px;
+            top:-145px;
+            left:12px;
+            border-radius:0 0 20px 5px;
+            transform: rotate(5deg);
+        }
+        
+        .runner-face:before, .runner-face:after {
+            content:"";
+            position: absolute;
+            border-radius:50%;
+        }
+        .runner-face:before {
+            width:5px;
+            height:10px;
+            top:15px;
+            left:25px;
+            background-color: #333;
+            box-shadow: 10px 0 #333;
+        }
+        .runner-face:after {
+            width:10px;
+            height:10px;
+            left:27px;
+            top:30px;
+            background-color: #c38e70;
+            animation: scale .25s linear infinite;
+        }
+        @keyframes scale {
+            0%,100% {transform: scale(1);}
+            50% {transform: scale(.7);}
+        }
+        .hair {
+            position: absolute;
+            z-index:5;
+            background-color: #dbb42c;
+            width: 57px;
+            height:17px;
+            border-radius: 10px 0 20px 0;
+            top:-5px;
+            left:-2px;
+        }
+        .hair:before, .hair:after {
+            content:"";
+            position: absolute;
+        }
+        .hair:before {
+            background-color: #dbb42c;
+            width:12px;
+            height:20px;
+            border-radius:0 0 15px 0;
+            top:15px;
+        }
+        .treadmill {
+            position: relative;
+        }
+        
+        .base {
+            position: absolute;
+            overflow: hidden;
+            width: 500px;
+            height: 50px;
+            border-radius: 50px;
+            background-color: #6c757d;
+            top:135px;
+            left:-200px;
+            border: 5px solid #333;
+        }
+        
+        .base:before {
+            content:"";
+            position: absolute;
+            width: 500px;
+            height:5px;
+            top:70px;
+            background-color: #333;
+            box-shadow: 0 0 #333, 0 -7px #333, 0 -14px #333, 0 -21px #333, 0 -28px #333, 0 -35px #333, 
+            0 -42px #333, 0 -49px #333,0 -56px #333, 0 -63px #333, 0 -70px #333, 0 -77px #333, 
+            0 -84px #333, 0 -91px #333, 0 -98px #333, 0 -105px #333;
+            animation: mill .25s linear infinite;
+        }
+        .base:after {
+            content:"";
+            position: absolute;
+            border: 5px solid #333;
+            top:-5px;
+            left:-5px;
+            width:380px;
+            height:50px;
+            background-color: #343a40;
+            border-radius: 50px;
+        }
+        
+        @keyframes mill {
+            0% {transform: translateY(0);}
+            100% {transform: translateY(35px);}
+        }
+
+        .legs, .legs:before, .legs-behind:before, .legs-behind:after {
+            position: absolute;
+            width:25px;
+        }
+
+        .legs, .legs-behind:before {
+            height:180px;
+            transform: skew(15deg);
+        }
+            
+        .legs {
+            background-color: #212529;
+            top:25px;
+            z-index:7;
+            left:115px;
+        }
+
+        .legs:before, .legs-behind:after {
+            height:10px;
+        }
+        
+        .legs:before {
+            content:"";
+            background-color: #212529;
+            left:-280px;
+            top:170px;
+        }
+
+        .legs-behind {
+            position: absolute;
+            width:500px;
+            height:50px;
+            background-color: rgba(0,0,0,.2);
+            border-radius:50%;
+            top:170px;
+            z-index:-4;
+            left:-200px;
+        }
+
+        .legs-behind:before {
+            content:"";
+            background-color: #adb5bd;
+            top:-150px;
+            left:400px;
+        }
+
+        .legs-behind:after {
+            content:"";
+            background-color: #adb5bd;
+            left:120px;
+            transform: skew(15deg);
+            top:20px;
+       }
+
+        .panel {
+            position: absolute;
+            width: 200px;
+            height: 25px;
+            background-color: #adb5bd;
+            z-index:8;
+            border-radius:30px;
+            left:40px;
+            box-shadow: inset -100px 0 #6c757d;
+        }
+
+        .panel:before, .panel:after {
+            content:"";
+            position: absolute;
+        }
+
+        .panel:before {
+            width: 60px;
+            height:25px;
+            background-color: #343a40;
+            top:-25px;
+            left:90px;
+            border-radius:0 25px 0 0;
+        }
+
+        .panel:after {
+            border-style: solid;
+            border-width: 30px 0 25px 30px;
+            border-color: transparent transparent #343a40 transparent;
+            height:0;
+            width:0;
+            top:-55px;
+            left:60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="treadmill-animation">
+        <div class="treadmill">
+            <div class="base"></div>
+            <div class="legs"></div>
+            <div class="legs-behind"></div>
+          <div class="panel"></div>
+        </div>
+        <div class="runner">
+            <div class="runner-body"></div>
+            <div class="right-arm"></div>
+            <div class="left-arm"></div>
+            <div class="runner-legs">
+                <div class="right-leg">
+                    <div class="right-calf">
+                        <div class="right-shoe"></div>
+                    </div>
+                </div>
+                <div class="left-leg">
+                    <div class="left-calf">
+                        <div class="left-shoe"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="runner-face">
+                <div class="hair"></div>
+            </div>
+        </div>
+    </div>
+</body>
