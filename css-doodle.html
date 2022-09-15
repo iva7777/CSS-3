@@ -1,0 +1,53 @@
+<head>
+    <style>
+        body {
+            --s: 40px; /* the size of the wave */
+            --b: 18px; /* the thickness of the line*/
+            
+            height: calc(100vh + 40px); 
+            margin: -20px;
+            filter: blur(7px) contrast(20) hue-rotate(20deg);
+            background: #fff;
+            mix-blend-mode: darken;
+        }
+
+        body::before,
+        body::after{
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(var(--_c,yellow) 0 0) left -100vw top 50% no-repeat;
+            --_g: calc(-.45*var(--s)), #0000 calc(99% - var(--b)),#000 calc(101% - var(--b)) 99%,#0000 101%;
+            --_s: calc(4*var(--s)) calc(3*var(--s));
+            --_r: calc(1.096*var(--s) + var(--b)/2);
+            -webkit-mask:
+                radial-gradient(var(--_r) at left 50% bottom var(--_g)) 
+                calc(50% - 2*var(--s)) calc(50% - 3*var(--s)/2 + var(--_o,0px))/var(--_s),
+                radial-gradient(var(--_r) at left 50% top    var(--_g)) 
+                50%                    calc(50% + 3*var(--s)/2 + var(--_o,0px))/var(--_s);
+            animation: back 10s infinite linear;
+        }
+        body::after{
+            --_c: aqua;
+            --_o: 3*var(--s)/2;
+            animation-direction: reverse;
+        }
+
+        @keyframes back {
+            to {background-position: right -100vw top 50%}
+        }
+
+        html {
+            background: #ffdead;
+            overflow: hidden;
+        }
+
+        html:before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: inherit;
+        }
+    </style>
+</head>
+<body></body>
