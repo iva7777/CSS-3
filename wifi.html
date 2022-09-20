@@ -1,0 +1,68 @@
+<head>
+    <style>
+        :root {
+            --speed: 2s;
+        }
+
+        body {
+            background: #222;
+            color: #7fc;
+            margin: 0;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        svg {
+            width: 90vmin;
+            height: 90vmin;
+            display: block;
+        }
+
+        circle, .waves path {
+            animation: blink linear var(--speed) infinite;
+        }
+
+        circle, .waves path:nth-child(5n) {
+            animation-delay: calc(-0.8 * var(--speed));
+        }
+
+        circle, .waves path:nth-child(5n + 1) {
+            animation-delay: calc(-0.6 * var(--speed));
+        }
+
+        circle, .waves path:nth-child(5n + 2) {
+            animation-delay: calc(-0.4 * var(--speed));
+        }
+
+        circle, .waves path:nth-child(5n + 3) {
+            animation-delay: calc(-0.2 * var(--speed));
+        }
+
+        circle, .waves path:nth-child(5n + 4) {
+            animation-delay: 0;
+        }
+
+        @keyframes blink {
+            0%, 100% {opacity: 0;}
+            50% {opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+    <svg class="wlan" viewBox="-26 -40 52 52">
+        <circle r="2" stroke="currentColor" fill="none" />
+        <g class="waves" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M-4 -4s4 -4 8 0" />
+          <path d="M-6 -6s6 -6 12 0" />
+          <path d="M-8 -8s8 -8 16 0" />
+          <path d="M-10 -10s10 -10 20 0" />
+          <path d="M-12 -12s12 -12 24 0" />
+          <path d="M-14 -14s14 -14 28 0" />
+          <path d="M-16 -16s16 -16 32 0" />
+          <path d="M-18 -18s18 -18 36 0" />
+          <path d="M-20 -20s20 -20 40 0" />
+          <path d="M-22 -22s22 -22 44 0" />
+        </g>
+    </svg>
+</body>
