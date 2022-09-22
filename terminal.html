@@ -1,0 +1,121 @@
+<head>
+    <style>
+        body {
+            padding: 0 0;
+            background-color: #e1e1e1;
+            color: #444;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+        }
+
+        input {
+            color: #444;
+        }
+
+        .header-container.container {
+            padding: 20px 20px 0 20px;
+        }
+
+        .header-container h1{
+            color: #fff;
+            font-size: 28px;
+            text-shadow: 1px 1px 0 #659ea6;
+            margin: 0;
+            padding: 10px;
+            display: inline-block;
+            border: 1px solid #659ea6;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background: #7cc2cc;
+        }
+
+        .textbox {
+            width: 100%;
+            margin: 0;
+            padding: 20px 0;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            font-size: 18px;
+        }
+
+        .button {
+            display: none;
+        }
+
+        .container {
+            width: 600px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        .box-container {
+            background-color: #e1e1e1;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            box-shadow: 2px 2px 6px #999;
+            z-index: 5;
+        }
+
+        .box {
+            padding: 0 20px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            border-bottom-color: #fff;
+            border-right-color: #fff;
+            background-color: #fff;
+            box-shadow: inset 3px 3px 2px #ccc;
+        }
+
+        .display-container {
+            height: 225px;
+            margin-top: 20px;
+            overflow: hidden;
+            background-color: #333;
+            border: 1px solid transparent;
+            border-top: 1px solid #000;
+            border-radius: 7px;
+            box-shadow: inset 3px 3px 12px #2a2a2a;
+        }
+
+        .display {
+            position: relative;
+            color: #eee;
+            text-shadow: 1px 1px 1px #000;
+            transition: margin-top 1s;
+        }
+
+        .display p {
+            margin: 0;
+            padding: 10px 0;
+            border: 1px solid #3b3b3b;
+            border-width: 0 0 1px 0;
+            line-height: 1.2;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        <div class="header-container container">
+          <h1>Terminal Interface</h1> 
+        </div>
+        <form id="command_form">
+          <div class="box-container container">
+            <div class="box">
+              <input type="text" class="textbox" placeholder="enter a command (and hit enter) &hellip;" />
+              <input type="submit" value="Submit" class="button"/>
+            </div>
+          </div>
+        </form>
+        <div class="display-container container">
+          <div id="display" class="display">
+            <p>mkdir -p ~/Sites/New_Site</p>
+            <p>cd ~/Sites/New_Site</p>
+            <p>touch index.htm blog.htm contact.htm</p>
+            <p>echo 'whoop!' >> index.htm</p>
+            <p>cat index.htm</p>
+          </div>
+        </div>
+    </div>
+</body>
