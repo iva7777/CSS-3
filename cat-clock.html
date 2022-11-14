@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .cat-clock {
+            position: relative;
+            top: -50px;
+        }
+        .cat-clock::before, .cat-clock::after {
+            content: "";
+            position: absolute;
+            background-color: #333;
+            width: 100px;
+        }
+        .cat-clock::before {
+            height: 130px;
+            border-radius: 30px 30px 10px 10px;
+        }
+        .cat-clock::after {
+            height: 100px;
+            border-radius: 50%;
+            top: -90px;
+        }
+        .tail {
+            position: absolute;
+            transform-origin: top;
+            border-left: 15px solid #333;
+            border-bottom: 17px solid #333;
+            border-bottom-left-radius: 50px;
+            width: 20px;
+            height: 100px;
+            top: 115px;
+            left: 45px;
+            animation: move 2s linear infinite;
+        }
+        .tail::before {
+            content: "";
+            position: absolute;
+            background-color: #333;
+            border-radius: 50%;
+            width: 17px;
+            height: 17px;
+            left: 13px;
+            top: 100px;
+        }
+        @keyframes move {
+            0%, 50%, 100% {transform: rotate(0);}
+            25% {transform: rotate(-20deg);}
+            75% {transform: rotate(20deg);}
+        }
+        .eyes {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            top: -70px;
+            left: 10px;
+            z-index: 2;
+            box-shadow: 45px 0 #fff;
+        }
+        .eyes::before {
+            content: "";
+            position: absolute;
+            background-color: #333;
+            border-radius: 50%;
+            width: 10px;
+            height: 25px;
+            top: 5px;
+            left: 12px;
+            z-index: 2;
+            box-shadow: 47px 0 #333;
+            animation: slide 2s linear infinite;
+        }
+        @keyframes slide {
+            0%, 50%, 100% {left: 12px;}
+            25% {left: 21px;}
+            75% {left: 3px;}
+        }
+        .smile {
+            position: absolute;
+            background-color: #fff;
+            width: 65px;
+            height: 25px;
+            border-radius: 0 0 50px 50px;
+            z-index: 4;
+            top: -30px;
+            left: 17px;
+        }
+        .smile::before, .smile::after {
+            content: "";
+            position: absolute;
+            border-bottom-left-radius: 50px;
+            border-left: 2px solid #333;
+            border-bottom: 2px solid #333;
+            width: 10px;
+            height: 20px;
+            top: -3px;
+        }
+        .smile::before {
+            left: 20px;
+            transform: scaleX(-1);
+        }
+        .smile::after {
+            left: 30px;
+        }
+        .bow-tie {
+            position: absolute;
+            z-index: 10;
+            width: 2px;
+            left: 40px;
+            top: -19px;
+            border-bottom: 25px solid #e9ecef;
+            border-top: 25px solid #ced4da;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            transform: rotate(-90deg);
+        }
+        .bow-tie::before, .bow-tie::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+        }
+        .bow-tie::before {
+            width: 10px;
+            height: 10px;
+            left: -3px;
+            top: -5px;
+            background-color: #dee2e6;
+        }
+        .bow-tie::after {
+            width: 15px;
+            height: 15px;
+            background-color: #ae2012;
+            top: -10px;
+            left: 30px;
+        }
+        .clock-face {
+            position: absolute;
+            border: 3px solid #fff;
+            width: 70px;
+            height: 95px;
+            border-radius: 40px;
+            top: 16px;
+            left: 12px;
+        }
+        .clock-face::before, .clock-face::after {
+            content: "";
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+        .clock-face::before {
+            width: 7px;
+            height: 7px;
+            left: 30px;
+            top: 5px;
+            box-shadow: 0 77px #fff, 29px 37px #fff, -27px 37 #fff;
+        }
+        .clock-face::after {
+            width: 5px;
+            height: 5px;
+            left: 7px;
+            top: 17px;
+            box-shadow: 50px 0 #fff, 50px 50px #fff, 0 50px #fff;
+        }
+        .ears {
+            position: absolute;
+            background-color: #333;
+            width: 25px;
+            height: 50px;
+            border-radius: 50px 0 0 50px;
+            top: 5px;
+            left: -10px;
+            z-index: -1;
+            box-shadow: -5px 75px #333, 70px -110px #333;
+        }
+        .ears::before {
+            content: "";
+            position: absolute;
+            background-color: #333;
+            width: 25px;
+            height: 50px;
+            border-radius: 0 50px 50px 0;
+            left: 95px;
+            box-shadow: 5px 75px #333, -70px -110px #333;
+        }
+        .clock-hands {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            z-index: 12px;
+            top: 60px;
+            left: 43px;
+        }
+        .clock-hands::before, .clock-hands::after {
+            content: "";
+            position: absolute;
+            background-color: #fff;
+            border-radius: 30px;
+            transform-origin: right;
+        }
+        .clock-hands::before {
+            width: 30px;
+            height: 5px;
+            top: 5px;
+            left: -23px;
+            transform: rotate(-50deg);
+            animation: rotate 15s linear infinite;
+        }
+        @keyframes rotate {
+            from {transform: rotate(0deg);}
+            to {transform: rotate(360deg);}
+        }
+        .clock-hands::after {
+            width: 25px;
+            height: 5px;
+            top: 4px;
+            left: -18px;
+            transform: rotate(-50deg);
+            animation: rotateTwo 21s linear infinite;
+        }
+        @keyframes rotateTwo {
+            from {transform: rotate(0deg);}
+            to {transform: rotate(360deg);}
+        }
+        .claws {
+            position: absolute;
+            background-color: #fff;
+            width: 3px;
+            height: 8px;
+            border-radius: 10px;
+            top: 118px;
+            left: 5px;
+            box-shadow: 5px 0 #fff, 10px 0 #fff, 15px 0 #fff,
+            70px 0 #fff, 75px 0 #fff, 80px 0 #fff, 85px 0 #fff;
+        }
+        .claws:before {
+            content:"";
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            width:7px;
+            height: 7px;
+            top:-80px;
+            left:-2px;
+            box-shadow: 5px -5px #fff, 10px -10px #fff, 15px -15px #fff, 70px -15px #fff, 
+            75px -10px #fff, 80px -5px #fff, 85px 0 #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="cat-clock">
+        <div class="tail"></div>
+        <div class="eyes"></div>
+        <div class="smile"></div>
+        <div class="bow-tie"></div>
+        <div class="clock-face"></div>
+        <div class="ears"></div>
+        <div class="clock-hands"></div>
+        <div class="claws"></div>
+    </div>
+</body>
+</html>
