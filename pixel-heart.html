@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Heart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #000000;
+        }
+
+        #gradient {
+            width: 100%;
+            height: 800px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .heart {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            margin: -52px 0 0 -52px;
+        }
+
+        .heart::before {
+            content: "";
+            display: block;
+            width: 15px;
+            height: 15px;
+            box-shadow: 15px 15px #8e1a19,30px 15px #000000,45px 15px #ff0000,60px 15px transparent,
+            75px 15px #0000ff,90px 15px #ffff00,105px 15px #800080,0 30px #00ffff,15px 30px #8e1559,
+            30px 30px #8e2259,45px 30px #899819,60px 30px #aa7819,75px 30px #8e3419,90px 30px #80ae09,
+            105px 30px #443319,120px 30px #88ee59,0 45px #ff6347,15px 45px #aeae59,30px 45px #324259,
+            45px 45px #887719,60px 45px #aa3434,75px 45px #8dde19,90px 45px #8cc3e9,105px 45px #42ea19,
+            120px 45px #881849,0 60px navy,15px 60px #844349,30px 60px #8a2334,45px 60px #aee819,60px 60px #acd438,
+            75px 60px #822229,90px 60px #8eeddc,105px 60px #44ded9,120px 60px #8a4459,15px 75px #8e1a19,30px 75px #000000,
+            45px 75px #ff0000,60px 75px #ff6347,75px 75px #0000ff,90px 75px #ffff00,105px 75px #800080,30px 90px #844349,45px 90px #8cc3e9,
+            60px 90px #333,75px 90px #8e1a19,90px 90px #ff6347,45px 105px #8caee9,60px 105px #3e33c3,75px 105px #8eaa19,60px 120px #00ffff;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+</head>
+<body>
+    <div class="heart"></div>
+    <div id="gradient"></div>
+
+    <script>
+
+            var colors = new Array(
+                [62, 35, 255],
+                [60, 255, 60],
+                [255, 35, 98],
+                [45, 175, 230],
+                [255, 0, 255],
+                [255, 128, 0]);
+
+            var step = 0;
+            var colorIndices = [0, 1, 2, 3];
+            var gradientSpeed = 0.002;
+
+            function updateGradient() {
+
+                if ($ === undefined) return;
+
+                var currentColorLeft = colors[colorIndices[0]];
+                var nextColorLeft = colors[colorIndices[1]];
+                var currentColorRight = colors[colorIndices[2]];
+                var nextColorRight = colors[colorIndices[3]];
+
+                var istep = 1 - step;
+                var r1 = Math.round(istep * currentColorLeft[0] + step * nextColorLeft[0]);
+                var g1 = Math.round(istep * currentColorLeft[1] + step * nextColorLeft[1]);
+                var b1 = Math.round(istep * currentColorLeft[2] + step * nextColorLeft[2]);
+                var firstColor = "rgb(" + r1 + "," + g1 + "," + b1 + ")";
+
+                var r2 = Math.round(istep * currentColorRight[0] + step * nextColorRight[0]);
+                var g2 = Math.round(istep * currentColorRight[1] + step * nextColorRight[1]);
+                var b2 = Math.round(istep * currentColorRight[2] + step * nextColorRight[2]);
+                var secondColor = "rgb(" + r2 + "," + g2 + "," + b2 + ")";
+
+                $('#gradient').css({
+                    background: "-webkit-gradient(linear, left top, right top, from(" + firstColor + "), to(" + secondColor + "))"
+                }).css({
+                    background: "-moz-linear-gradient(left, " + firstColor + " 0%, " + secondColor + " 100%)"
+                });
+
+                step += gradientSpeed;
+                if (step >= 1) {
+                    step %= 1;
+                    colorIndices[0] = colorIndices[1];
+                    colorIndices[2] = colorIndices[3];
+                    
+                    colorIndices[1] = (colorIndices[1] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
+                    colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
+
+                }
+            }
+
+            setInterval(updateGradient, 10);
+    </script>
+</body>
+</html>
