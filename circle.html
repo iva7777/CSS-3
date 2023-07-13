@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle</title>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #111;
+        }
+
+        .circle {
+            position: relative;
+            height: 500px;
+            width: 500px;
+            background-color: #1982C4;
+            border-radius: 50%;
+        }
+
+        .line {
+            position: absolute;
+            width: 3px;
+            height: 500px;
+            background-color: #111;
+            top: 50%;
+            left: 50%;
+        }
+
+        .line::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            border-radius: 50%;
+            top: 0;
+            left: -20px;
+        }
+
+        .line:nth-child(1) {
+            transform: translate(-50%, -50%) rotate(22.5deg);
+        }
+
+        .line:nth-child(1):after {
+            animation: 3.6s 0.22s small-circle ease-in-out infinite;
+        }
+
+        .line:nth-child(2) {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .line:nth-child(2):after {
+            animation: 3.6s 0.44s small-circle ease-in-out infinite;
+        }
+
+        .line:nth-child(3) {
+            transform: translate(-50%, -50%) rotate(67.5deg);
+        }
+
+        .line:nth-child(3):after {
+            animation: 3.6s 0.67s small-circle ease-in-out infinite;
+        }
+
+        .line:nth-child(4) {
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        .line:nth-child(4):after {
+            animation: 3.6s 0.9s small-circle ease-in-out infinite;
+        }
+
+        .line:nth-child(5) {
+            transform: translate(-50%, -50%) rotate(112.5deg);
+        }
+
+        .line:nth-child(5):after {
+            animation: 3.6s 1.11s small-circle ease-in-out infinite;
+        }
+
+        .line:nth-child(6) {
+            transform: translate(-50%, -50%) rotate(135deg);
+        }
+
+        .line:nth-child(6):after {
+            animation: 3.6s 1.33s small-circle ease-in-out infinite;
+        }
+
+        .line:nth-child(7) {
+            transform: translate(-50%, -50%) rotate(157.5deg);
+        }
+
+        .line:nth-child(7):after {
+            animation: 3.6s 1.555555555555555s small-circle ease-in-out infinite;
+        }
+
+        .line:nth-child(8) {
+            transform: translate(-50%, -50%) rotate(180deg);
+        }
+
+        .line:nth-child(8):after {
+            animation: 3.6s 1.78s small-circle ease-in-out infinite;
+        }
+
+        @-webkit-keyframes small-circle {
+            0% {
+                top: 0;
+            }
+
+            50% {
+                top: calc(100% - 40px);
+            }
+
+            100% {
+                top: 0;
+            }
+        }
+        @keyframes small-circle {
+            0% {
+                top: 0;
+            }
+
+            50% {
+                top: calc(100% - 40px);
+            }
+
+            100% {
+                top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</body>
+
+</html>
