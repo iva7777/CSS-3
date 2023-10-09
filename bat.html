@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bat</title>
+    <style>
+        .bat {
+            position: relative;
+            background-color: #1a1a1a;
+            height: 12.5rem;
+            width: 38rem;
+            font-size: 1rem;
+            text-align: center;
+            margin: 2rem;
+        }
+
+        .bat::before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 12.6em;
+            height: 10.71em;
+            border-radius: 50%;
+            background: #ffc300;
+            top: -6.3em;
+            left: 50%;
+            margin-left: -6.3em;
+        }
+
+        .head {
+            background: #1a1a1a;
+            position: relative;
+            width: 6.3em;
+            height: 6.615em;
+            border-radius: 50%;
+            margin: 0 auto;
+            z-index: 100;
+        }
+
+        .head::before, .head::after {
+            content: "";
+            display: block;
+            background: #1a1a1a;
+            position: absolute;
+            width: 6em;
+            height: 6em;
+            border-radius: 6em 0px;
+            top: -1em;
+            z-index: -1;
+        }
+
+        .head::before {
+            transform: rotate(110deg);
+            left: -1.35em;
+        }
+
+        .head::after {
+            right: -1.35em;
+            transform: rotate(-20deg);
+        }
+
+        .eye {
+            position: absolute;
+            background: #fff;
+            width: 1.9rem;
+            height: 1.9rem;
+            border-radius: 50%;
+            top: 1.75em;
+            left: 1em;
+            overflow: hidden;
+        }
+
+        .eye > .eyeball {
+            content: "";
+            position: absolute;
+            width: 0.5em;
+            height: 0.5em;
+            border-radius: 50%;
+            background: #fff;
+            top: 50%;
+            left: 50%;
+            margin-top: -0.5em;
+            margin-left: -0.5em;
+            box-shadow: 0.25em 0.2em 0 0.25em #000;
+        }
+
+        .eye + .eye {
+            right: 1em;
+            left: initial;
+        }
+
+        .body::before, .body::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 11.4rem;
+            height: 19rem;
+            background: #ffc300;
+            top: -12.92rem;
+        }
+
+        .body::before {
+            left: 0;
+            transform: rotate(75deg);
+        }
+
+        .body::after {
+            transform: rotate(-75deg);
+            right: 0;
+        }
+
+        .wings {
+            position: absolute;
+            height: 0;
+            width: 0;
+            left: 50%;
+            bottom: -3.5em;
+            margin-left: -11em;
+            border-style: solid;
+            border-width: 0 11em 7em 11em;
+            border-color: transparent transparent #ffc300 transparent;
+        }
+
+        .wings::before, .wings::after {
+            content: '';
+	        display: block;
+	        position: absolute;
+            background: #ffc300;
+            border-radius: 50%;
+            height: 10.71em;
+            width: 12.6em;
+            position: absolute;
+            bottom: -5.775em;
+        }
+
+        .wings:before {
+            box-shadow: 8em 5em 0 #ffc300;
+            left: -24em;
+        }
+        .wings:after {
+            box-shadow: -8em 5em 0 #ffc300;
+            right: -24em;
+        }
+        .tail {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 8em 4em 0 4em;
+            border-color: #1a1a1a transparent transparent transparent;
+            margin: 0 auto;
+            position: relative;
+        }
+        html {
+            font-size: 1vw;
+        }
+        body {
+            background-color: #ffc300;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .sr-only {
+            position: absolute;
+            left: -9999em;
+        }
+    </style>
+</head>
+<body>
+    <div class="bat">
+        <span class="sr-only">Bat</span>
+        <div class="head">
+            <span class="sr-only">Head</span>
+            <div class="eye">
+                <span class="eyeball"></span>
+                <span class="sr-only">Left Eye</span>
+            </div>
+            <div class="eye">
+                <span class="eyeball"></span>
+                <span class="sr-only">Right Eye</span>
+            </div>
+        </div>
+        <div class="body">
+            <span class="sr-only">Body</span>
+            <div class="wings">
+                <span class="sr-only">Wings</span>
+            </div>
+            <div class="tail">
+                <span class="sr-only">Tail</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
