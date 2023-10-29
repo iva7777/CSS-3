@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joystick</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #80d3f0;
+        }
+
+        .joystick, .main {
+            position: relative;
+        }
+
+        .joystick {
+            filter: drop-shadow(0 0 20px);
+        }
+
+        .main {
+            width: 200px;
+            height: 100px;
+            background-color: #fa48d9;
+            filter: drop-shadow(5px 10px #333);
+        }
+
+        .main::before, .main::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .main::before {
+            width: 130px;
+            height: 130px;
+            background-color: #fa48d9;
+            left: -60px;
+            box-shadow: 195px 0 #fa48d9;
+        }
+
+        .main::after {
+            width: 95px;
+            height: 95px;
+            background-color: #faa7d1;
+            top: 20px;
+            left: -45px;
+            box-shadow: 200px 0 #faa7d1;
+        }
+
+        .buttons-top {
+            position: absolute;
+            background-color: #fde96f;
+            width: 40px;
+            height: 10px;
+            top: -10px;
+            left: 0;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 10px 0 #333, 160px 0 #fde96f, 170px 0 #333;
+        }
+
+        .buttons-top::before, .buttons-top::after {
+            content: "";
+            position: absolute;
+        }
+
+        .buttons-top::before {
+            background-color: #fde96f;
+            width: 20px;
+            height: 10px;
+            top: 85px;
+            left: 70px;
+            border-radius: 100px;
+            box-shadow: 40px 0 #fde96f, 5px 0 #333, 45px 0 #333;
+        }
+
+        .buttons-top::after {
+            width: 100px;
+            height: 5px;
+            background-color: #333;
+            top: 40px;
+            left: 50px;
+            box-shadow: 0 -10px #333;
+        }
+
+        .cord, .cord::before, .cord::after {
+            position: absolute;
+        }
+
+        .cord {
+            top: -110px;
+            left: 85px;
+            z-index: -1;
+        }
+
+        .cord::before, .cord::after {
+            content: '';
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border-width: 5px;
+            border-style: solid;
+        }
+
+        .cord::before {
+            border-color: #333 transparent transparent #333;
+            transform: rotate(-40deg);
+        }
+
+        .cord::after {
+            top: -125px;
+            left: 8px;
+            border-color: transparent #333 #333 transparent;
+            transform: rotate(-40deg);
+        }
+
+        .controls, .controls::before {
+            position: absolute;
+            width: 20px;
+            height: 60px;
+            background-color: #fff9c3;
+        }
+
+        .controls {
+            left: -7px;
+            top: 40px;
+            filter: drop-shadow(5px 0 #333);
+        }
+
+        .controls::before {
+            content: '';
+            transform: rotate(90deg);
+            left: 0;
+            top: 0;
+        }
+
+        .buttons {
+            position: absolute;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            background-color: #E3493B;
+            top: 30px;
+            left: 190px;
+            box-shadow: 0 50px #eea538, 25px 25px #ADE364, -25px 25px #6B4AFA;
+            filter: drop-shadow(5px 0 #333);
+        }
+    </style>
+</head>
+<body>
+    <div class="joystick">
+        <div class="main"></div>
+        <div class="buttons-top"></div>
+        <div class="cord"></div>
+        <div class="controls"></div>
+        <div class="buttons"></div>
+    </div>
+</body>
+</html>
