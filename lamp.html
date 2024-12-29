@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamp</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .stage {
+            --bg: #230007;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--bg);
+            overflow-y: hidden;
+        }
+
+        .scene {
+            position: relative;
+            width: 400px;
+            height: 500px;
+        }
+
+        .scene::before {
+            --bg: #2b010a;
+            --glow: #230007;
+            --size: 600px;
+
+            content: "";
+            position: absolute;
+            width: var(--size);
+            height: var(--size);
+            top: -50px;
+            left: calc(50% - (var(--size) / 2));
+            background: var(--bg);
+            border-radius: var(--size);
+            box-shadow: var(--size);
+            animation: scene .6s infinite steps(6);
+        }
+
+        .halo {
+            --c-1: #5A0002;
+            --c-2: #7A0002;
+            --c-3: #A40606;
+            --c-4: #D98324;
+            --s-core: 100px;
+            --s-1: 120px;
+            --s-2: 90px;
+            --s-3: 60px;
+            --s-4: 30px;
+        }
+
+        .halo i {
+            --c: var(--c-1);
+            --s: var(--s-1);
+
+            display: block;
+            position: absolute;
+            width: var(--s-core);
+            height: var(--s-core);
+            top: 50%;
+            left: calc(50% - (var(--s-core) / 2));
+            transform-origin: center center;
+            border-radius: 50%;
+            background-color: var(--c-1);
+            box-shadow: 0 0 0 var(--s) var(--c);
+            animation: 4s halo .4s ease-in-out infinite;
+        }
+
+        .halo i:nth-of-type(2) {
+            animation-delay: .3s;
+            --c: var(--c-2);
+            --s: var(--s-2);
+        }
+
+        .halo i:nth-of-type(3) {
+            animation-delay: .2s;
+            --c: var(--c-3);
+            --s: var(--s-3);
+        }
+
+        .halo i:nth-of-type(4) {
+            animation-delay: .1s;
+            --c: var(--c-4);
+            --s: var(--s-4);
+        }
+
+        .halo-star {
+            --size: calc(var(--s-core) + (var(--s-1) * 2) - 15px);
+
+            display: block;
+            position: absolute;
+            width: var(--size);
+            height: var(--size);
+            top: calc(50% - var(--s-1) + 8px);
+            left: calc(50% - (var(--size) / 2));
+            transform-origin: center center;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at center, var(--c-1) 69.5%, transparent 69.5%),
+                linear-gradient(to right, transparent 50%, var(--c-3) 50%, var(--c-3) 52%, rgba(255, 255, 255, .1) 52%, transparent 70%);
+            clip: rect(0px var(--size) calc(var(--size) / 2) 0px);
+            animation: halo-star linear 5s forwards infinite;
+        }
+
+        .halo-star:nth-child(2) {
+            animation-delay: calc(5s / 3);
+        }
+
+        .halo-star:nth-child(3) {
+            animation-delay: calc((5s / 3) * 2);
+        }
+
+        .lamp {
+            --body: #250108;
+            --light: #f9c939;
+            --glow: #F72626;
+
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            left: calc(50%);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .lamp-handle {
+            width: 200px;
+            height: 105px;
+            border: 6px solid #7A0002;
+            border-radius: 50px;
+        }
+
+        .lamp-inner {
+            animation: lamp 1.2s ease-in-out alternate infinite;
+            margin-top: -5px;
+            transform-origin: top center;
+        }
+
+        .lamp-chain {
+            height: 60px;
+        }
+
+        .lamp-chain::before {
+            --c: #79051c;
+
+            background-color: var(--c);
+            box-shadow:
+                0 0 0 5px var(--c),
+                0 20px 0 var(--c),
+                0 35px 0 var(--c),
+                0 50px 0 var(--c);
+
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            margin: 0 auto;
+            border-radius: 50%;
+        }
+
+        .lamp-head::before,
+        .lamp-head::after {
+            content: '';
+            display: block;
+            height: 15px;
+            border-radius: 5px;
+            background: var(--body);
+        }
+
+        .lamp-head::before {
+            margin: 0 auto;
+            width: 100px;
+        }
+
+        .lamp-head::after {
+            margin: 3px auto;
+            width: 60px;
+            height: 30px;
+            border-radius: 3px;
+        }
+
+        .lamp-body {
+            position: relative;
+            perspective: 350px;
+        }
+
+        .lamp-body::before {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 195px;
+            margin: 0 auto;
+            perspective: 100px;
+            transform: rotateX(20deg) translateY(-20px);
+            transform-origin: center center;
+            background-color: var(--light);
+            border: 8px solid var(--body);
+            border-radius: 50px;
+            box-shadow: 
+                inset 0 0 0 5px var(--light),
+                inset 0 0 0 20px var(--glow);
+        }
+
+        .lamp-body::after {
+            --c: #842b3d;
+
+            content: '';
+            display: block;
+            width: 40px;
+            height: 7px;
+            margin: -7px auto 0;
+            transform: translateY(-195px);
+            background-color: var(--c);
+            border-radius: 4px;
+            box-shadow: -5px 161px 0 1px var(--c),
+                5px 161px 0 1px var(--c);
+        }
+
+
+        .lamp-spark {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            left: calc(50% - 30px);
+            top: calc(45% - 30px);
+            border-radius: 50%;
+            transform-origin: center center;
+            clip: rect(0px 30px 30px 0px);
+            animation: lamp-spark linear 2s forwards infinite;
+            background:
+            radial-gradient(circle at center, var(--light) 60%, transparent 60%),
+            linear-gradient(to right, transparent 10%, #fff 50%, transparent 50%);
+        }
+
+        .lamp-spark:nth-child(2) {
+            animation-delay: calc(2s / 3);
+        }
+
+        .lamp-spark:nth-child(3) {
+            animation-delay: calc((2s / 3) * 2);
+        }
+
+        .lamp-flame {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: calc(50% - 15px);
+            top: calc(45% - 15px);
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+        .lamp-base {
+            display: block;
+            width: 70px;
+            height: 15px;
+            margin: -15px auto 0;
+            border-radius: 5px;
+            background: var(--body);
+        }
+
+        .planet {
+            --bg: #5A0002;
+            --light: #F72626;
+            --orbit: 150px;
+
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 50%;
+            left: calc(50% - 15px);
+            overflow: hidden;
+            transform-origin: center center;
+            background: var(--bg);
+            border-radius: 50%;
+            border: 2px solid var(--bg);
+            box-shadow: 0 0 5px rgba(0, 0, 0, .25);
+            animation: planet 5s forwards infinite;
+        }
+
+        .planet::before {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background-color: var(--light);
+            top: -20px;
+            left: -20px;
+            bottom: -20px;
+            right: -20px;
+            animation: planet-light 2.5s forwards linear infinite;
+        }
+
+        .planet:nth-child(1) {
+            --orbit: 70px;
+
+            animation-delay: -.3s;
+            transform: scale(.9) translateY(-80px);
+        }
+
+        .planet:nth-child(2) {
+            --bg: #f14949;
+            --light: #ffcd07;
+            --orbit: 100px;
+
+            animation-delay: -2s;
+            animation-duration: 5.5s;
+            transform: scale(.8) translateY(-20px);
+        }
+
+        .planet:nth-child(3) {
+            --bg: #da2052;
+            --light: #eeea5f;
+            --orbit: 100px;
+
+            animation-delay: -4s;
+            animation-duration: 4.5s;
+            transform: scale(.4) translateY(100px);
+        }
+
+        .planet:nth-child(4) {
+            --bg: #cf1c1c;
+            --light: #e4dd00;
+            --orbit: 120px;
+
+            animation-delay: -3.7s;
+            animation-duration: 4.2s;
+            transform: scale(.8) translateY(75px);
+        }
+
+        .planet:nth-child(5) {
+            --bg: #A40606;
+            --light: #f5e728;
+            --orbit: 100px;
+
+            animation-delay: -1.3s;
+            animation-duration: 5.8s;
+            transform: scale(.4) translateY(40px);
+        }
+
+        .planet:nth-child(6) {
+            --orbit: 90px;
+
+            animation-delay: .5s;
+            animation-duration: 4.2s;
+            transform: scale(.9) translateY(150px);
+        }
+
+        @keyframes scene {
+            0% {
+                box-shadow: inset 0 0 0 3px var(--glow);
+            }
+
+            20% {
+                box-shadow: inset 0 0 0 8px var(--glow);
+            }
+
+            40% {
+                box-shadow: inset 0 0 0 2px var(--glow);
+            }
+
+            60% {
+                box-shadow: inset 0 0 0 6px var(--glow);
+            }
+
+            80% {
+                box-shadow: inset 0 0 0 3px var(--glow);
+            }
+
+            100% {
+                box-shadow: inset 0 0 0 5px var(--glow);
+            }
+        }
+
+        @keyframes halo {
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes halo-star {
+            100% {
+                transform: rotateZ(-360deg);
+            }
+        }
+
+        @keyframes lamp {
+            0% {
+                transform: rotateZ(1deg);
+            }
+            100% {
+                transform: rotateZ(-1deg);
+            }
+        }
+
+        @keyframes lamp-spark {
+            100% {
+                transform: rotateZ(360deg);
+            }
+        }
+
+        @keyframes planet {
+            0% {
+                margin-left: calc(var(--orbit) * -1);
+                z-index: 1;
+            }
+            50% {
+                margin-left: var(--orbit);
+                z-index: 1;
+            }
+            50.1% {
+                margin-left: var(--orbit);
+                z-index: 0;
+            }
+            100% {
+                margin-left: calc(var(--orbit) * -1);
+                z-index: 0;
+            }
+        }
+
+        @keyframes planet-light {
+            0% {
+                transform: translateX(-100%);
+            }
+            50% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="scene">
+            <div class="halo">
+                <i></i>
+                <span class="halo-star"></span>
+                <span class="halo-star"></span>
+                <span class="halo-star"></span>
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+
+            <div class="lamp">
+                <div class="lamp-handle"></div>
+                <div class="lamp-inner">
+                    <div class="lamp-chain"></div>
+                    <div class="lamp-head"></div>
+                    <div class="lamp-body">
+                        <div class="lamp-spark"></div>
+                        <div class="lamp-spark"></div>
+                        <div class="lamp-spark"></div>
+                        <div class="lamp-flame"></div>
+                    </div>
+                    <div class="lamp-base"></div>
+                </div>
+            </div>
+
+            <div class="planets">
+                <div class="planet"></div>
+                <div class="planet"></div>
+                <div class="planet"></div>
+                <div class="planet"></div>
+                <div class="planet"></div>
+                <div class="planet"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
