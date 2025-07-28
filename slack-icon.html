@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slack Icon</title>
+    <style>
+        :root {
+            --blue: #3ec7ef;
+            --green: #41da9a;
+            --orange: #ecb434;
+            --red: #e82761;
+        }
+
+        body {
+            margin: 0;
+            background: radial-gradient(at 70% 30%, #543351, #131628);
+        }
+
+        .grid {
+            box-sizing: border-box;
+            display: grid;
+            min-height: 100vh;
+            justify-items: center;
+            align-items: center;
+            padding: 50px;
+        }
+
+        .icon {
+            position: relative;
+            width: 320px;
+            aspect-ratio: 1/1;
+            border-radius: 100px;
+        }
+
+        .grid::before, .grid::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.25' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background: var(--noise) 0 / 300px repeat;
+            mix-blend-mode: overlay;
+            opacity: 0.7;
+        }
+
+        .slack {
+            background-color: #e0e5e2;
+            box-shadow: inset -1px 1px 1px rgb(255 255 255 / 100%),
+							inset 1px -1px 2px rgb(0 0 0 / 30%),
+							var(--shadow);
+        }
+
+        .slack > *, .slack > *::before {
+            position: absolute;
+            content: '';
+            box-shadow: inset 1px -1px 1px rgb(var(--shadow) / 20%),
+                                    inset -1px 1px 1px rgb(255 255 255 / 30%), 
+                                    -4px 5px 3px -3px rgb(var(--shadow) / 20%),
+                                    -10px 15px 10px -5px rgb(var(--shadow) / 15%),
+                                    -3px 3px 10px 0px rgb(var(--shadow) / 10%);
+        }
+
+        .slack div:nth-child(1) {
+            width: 105px;
+            height: 46px;
+            top: 50%;
+            left: 50%;
+            background: var(--blue);
+            border-radius: 99em;
+            translate: calc(-100% - 5px) calc(-100% - 5px);
+
+            --shadow: 5 48 61;
+        }
+
+        .slack div:nth-child(1)::before {
+            top: calc(-100% - 10px); 
+            right: 0;
+            width: 46px; 
+            aspect-ratio: 1/1;
+            background: var(--blue);
+            border-radius: 50% 50% 4px 50%;
+        }
+
+        .slack div:nth-child(2) {
+            width: 46px;
+            height: 105px;
+            top: 50%;
+            left: 50%;
+            background: var(--green);
+            border-radius: 99em;
+            translate: 5px calc(-100% - 5px);
+
+            --shadow: 2 40 24;
+        }
+
+        .slack div:nth-child(2)::before {
+            bottom: 0;
+            left: calc(100% + 10px);
+            width: 46px; 
+            aspect-ratio: 1/1;
+            background: var(--green);
+            border-radius: 50% 50% 50% 4px;
+        }
+
+        .slack div:nth-child(3) {
+            width: 105px;
+            height: 46px;
+            top: 50%;
+            left: 50%;
+            background: var(--orange);
+            border-radius: 99em;
+            translate: 5px 5px;
+
+            --shadow: 52 38 8;
+        }
+
+        .slack div:nth-child(3)::before {
+            left: 0;
+            top: calc(100% + 10px);
+            width: 46px; 
+            aspect-ratio: 1/1;
+            background: var(--orange);
+            border-radius: 4px 50% 50% 50%;
+        }
+
+        .slack div:nth-child(4) {
+            top: 50%; left: 50%;
+            width: 46px; height: 105px;
+            background: var(--red);
+            border-radius: 99em;
+            translate: calc(-100% - 5px) 5px;
+
+            --shadow: 73 5 25;
+        }
+
+        .slack div:nth-child(4)::before {
+            top: 0; left: calc(-100% - 10px);
+            width: 46px; aspect-ratio: 1/1;
+            background: var(--red);
+            border-radius: 50% 4px 50% 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="icon slack">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</body>
+</html>
