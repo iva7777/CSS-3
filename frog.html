@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frog Art</title>
+    <style>
+        body {
+            background-color: #d1ff7c;
+        }
+
+        body *,
+        body *::after,
+        body *::before {
+            position: absolute;
+            content: '';
+            box-sizing: border-box;
+        }
+        
+
+        .frog {
+            --primary: #489772;
+            --secondary: #d1ff7c;
+            --tertiary: #d8a4db;
+            --tongue: #fc6eb0;
+
+            top: 50%;
+            left: 50%;
+            width: 520px;
+            height: 250px;
+            background: var(--primary);
+            border-radius: 70px 70px 0 0;
+            border: 4px solid black;
+            border-bottom: 0;
+            translate: -50% -50%;
+        }
+        
+
+        .frog-legs {
+            top: 100%;
+            left: -4px;
+            width: 215px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 0 0 30px 70px;
+            border: 4px solid black;
+            border-top: 0;
+        }
+
+        .frog-legs::before {
+            left: 301px;
+            width: inherit;
+            height: inherit;
+            background: inherit;
+            border: inherit;
+            border-radius: 0 0 70px 30px;
+        }
+
+        .frog-legs::after {
+            left: 100%;
+            width: 98px;
+            height: 50px;
+            border: 4px solid black;
+            border-bottom: 0;
+            border-radius: 50px 50px 0 0;
+            box-shadow: 0 -20px 0 20px var(--primary);
+        }
+
+        .frog-head {
+            top: -140px;
+            left: -4px;
+            width: inherit;
+            height: 160px;
+            background: var(--primary);
+            border: 4px solid black;
+            border-radius: 70px;
+        }
+
+        .frog-left-eye {
+            top: -55px;
+            left: 60px;
+            width: 170px;
+            height: 90px;
+            background:
+                conic-gradient(from -105deg at 60% 50%, white 30deg, transparent 0),
+                linear-gradient(90deg, white 50%, black 0);
+            border: 4px solid black;
+            box-shadow:
+                inset 0 0 0 10px var(--primary),
+                inset 0 0 0 14px black;
+            border-radius: 99em;
+        }
+
+        .frog-right-eye {
+            top: -55px;
+            right: 60px;
+            width: 170px;
+            height: 90px;
+            background:
+                conic-gradient(from 75deg at 40% 50%, white 30deg, transparent 0),
+                linear-gradient(90deg, black 50%, white 0);
+            border: 4px solid black;
+            box-shadow:
+                inset 0 0 0 10px var(--primary),
+                inset 0 0 0 14px black;
+            border-radius: 99em;
+        }
+
+        .frog-right-cheek {
+            top: 5px;
+            right: 50px;
+            width: 190px;
+            height: 40px;
+            background: 
+                radial-gradient(farthest-side circle at 50% 70%, var(--primary) calc(100% - 4px), 
+                black 0 100%, transparent) 0 0 / 190px 190px;
+        }
+
+        .frog-left-cheek {
+            top: 5px;
+            left: 50px;
+            width: 190px;
+            height: 40px;
+            background: 
+                radial-gradient(farthest-side circle at 50% 70%, var(--primary) calc(100% - 4px), 
+                black 0 100%, transparent) 0 0 / 190px 190px;
+        }
+
+        .frog-left-cheek::before,
+        .frog-right-cheek::before {
+            top: 20px;
+            left: 50%;
+            width: 100px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 4px dashed black;
+            background: var(--tertiary);
+            translate: -50% 0;
+        }
+
+        .frog-head::before {
+            top: 10px;
+            left: 233px;
+            width: 22px;
+            height: 22px;
+            border: 4px solid;
+            border-color: black black transparent transparent;
+            border-radius: 50%;
+            box-shadow: 
+                inset 0 0 0 4px var(--primary),
+                inset 0 0 0 8px black;
+            rotate: -45deg;
+        }
+
+        .frog-head::after {
+            top: 10px;
+            left: 233px;
+            width: 22px;
+            height: 22px;
+            border: 4px solid;
+            border-color: black black transparent transparent;
+            border-radius: 50%;
+            box-shadow: 
+                inset 0 0 0 4px var(--primary),
+                inset 0 0 0 8px black;
+            rotate: -45deg;
+        }
+
+        .frog-mouth {
+            top: 60px;
+            left: 50%;
+            width: 60px;
+            height: 40px;
+            background: 
+                linear-gradient(black) center 0 / 4px 20px no-repeat, 
+                var(--tongue);
+            border-radius: 0 0 99em 99em;
+            border: 4px solid black;
+            translate: -50% 0;
+        }
+
+        .frog-mouth::before {
+            top: -5px;
+            left: 50%;
+            width: 230px;
+            height: 20px;
+            background-image: 
+                radial-gradient(farthest-side circle at 50% 160%, 
+                transparent calc(100% - 4px), black 0 100%, transparent);
+            background-position: 0 0;
+            background-size: 230px 230px;
+            translate: -50% 0;
+        }
+
+        .frog-body {
+            top: 16px;
+            left: 50%;
+            width: 480px;
+            height: 220px;
+            background: var(--primary);
+            border-radius: 50px;
+            border: 4px solid black;
+            translate: -50% 0;
+        }
+
+        .frog-body::before {
+            bottom: 0;
+            left: 50%;
+            width: 160px;
+            height: 200px;
+            background: 
+                repeating-linear-gradient(90deg, transparent 0 8px, black 0 12px), 
+                var(--secondary);
+            border-radius: 99em 99em 0 0;
+            border: 4px solid black;
+            border-bottom: 0;
+            translate: -50% 0;
+        }
+
+        .frog-right-arm {
+            bottom: 0;
+            right: 80px;
+            width: 60px;
+            height: 180px;
+            border-left: 4px solid black;
+            border-right: 4px solid black;
+        }
+
+        .frog-right-arm::before,
+        .frog-left-arm::before {
+            top: 100%; left: 50%;
+            width: 100px; height: 50px;
+            background: 
+                radial-gradient(circle farthest-side, transparent calc(100% - 4px), black 0 100%, transparent) -27px -15px / 52px 52px, 
+                radial-gradient(circle farthest-side, transparent calc(100% - 4px), black 0 100%, transparent) 74px -15px / 52px 52px, 
+                radial-gradient(circle farthest-side, transparent calc(100% - 4px), black 0 100%, transparent) 48px 25px / 52px 52px, 
+                radial-gradient(circle farthest-side, transparent calc(100% - 4px), black 0 100%, transparent) 0px 25px / 52px 52px;
+            background-repeat: no-repeat;
+            border-radius: 0 0 99em 99em;
+            translate: -50% 0;
+        }
+
+        .frog-left-arm {
+            bottom: 0;
+            left: 80px;
+            width: 60px;
+            height: 180px;
+            border-left: 4px solid black;
+            border-right: 4px solid black;
+        }
+
+        .frog-finger {
+            top: 100%; left: 50%;
+            width: 20px; aspect-ratio: 1;
+            background-color: var(--primary);
+            border: 4px solid black;
+            border-radius: 50%;
+            transform: 
+                translate(-50%, -50%)
+                rotate(var(--angle)) 
+                translateX(50px);
+        }
+
+        .frog-finger:nth-child(1) {
+            --angle: 140deg;
+        }
+
+        .frog-finger:nth-child(2) {
+            --angle: 40deg;
+        }
+
+        .frog-finger:nth-child(3) {
+            --angle: 90deg;
+        }
+
+        .fly {
+            top: -160px;
+            left: 50%;
+            width: 25px;
+            aspect-ratio: 1;
+            background: black;
+            border-radius: 50%;
+            translate: -50% 0;
+        }
+
+        .fly::before,
+        .fly::after {
+            top: 50%;
+            width: 30px;
+            aspect-ratio: 1;
+            border: 4px dashed;
+            border-radius: 0 9em 9em;
+            background: #46d6de;
+            translate: 0 -50%;
+        }
+
+        .fly::before {
+            left: 100%;
+            rotate: -45deg;
+        }
+
+        .fly::after {
+            right: 100%;
+            rotate: 135deg;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="frog">
+        <div class="frog-legs"></div>
+        <div class="frog-head">
+            <div class="frog-left-eye"></div>
+            <div class="frog-right-eye"></div>
+            <div class="frog-left-cheek"></div>
+            <div class="frog-right-cheek"></div>
+            <div class="frog-mouth"></div>
+        </div>
+        <div class="frog-body">
+            <div class="frog-right-arm">
+                <div class="frog-finger"></div>
+                <div class="frog-finger"></div>
+                <div class="frog-finger"></div>
+            </div>
+            <div class="frog-left-arm">
+                <div class="frog-finger"></div>
+                <div class="frog-finger"></div>
+                <div class="frog-finger"></div>
+            </div>
+        </div>
+        <div class="fly"></div>
+    </div>
+</body>
+</html>
